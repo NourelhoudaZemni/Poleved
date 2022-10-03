@@ -19,8 +19,8 @@ Route::get('/', function () {
 
 
 Route::view('/admin', 'admin');
-Route::view('/admin', 'admin');
-Route::view('/admin', 'admin');
+Route::view('/login', 'login');
+Route::view('/signup', 'signup');
 
 
 
