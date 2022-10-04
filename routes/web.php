@@ -21,6 +21,9 @@ Route::get('/', function () {
 Route::view('/admin', 'admin');
 Route::view('/login', 'login');
 Route::view('/signup', 'signup');
+Route::view('/profile', 'profile');
+Route::view('/contact', 'contact');
+Route::view('/notFound404', 'notFound404');
 
 
 
