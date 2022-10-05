@@ -10,9 +10,9 @@
     <title>Document</title>
 </head>
        <body>
-        <div class=" bg-gray-100">
+<div class=" bg-gray-100">
             <!-- NavBar -->
-            <nav class="2xl:container 2xl:mx-auto sm:py-6 sm:px-7 py-5 px-4">
+            <nav id="navbar" class="2xl:container 2xl:mx-auto sm:py-6 sm:px-7 py-5 px-4">
                 <!-- For large and Medium-sized Screen -->
                 <div class="flex justify-between "> 
                     <div class="hidden sm:flex flex-row items-center space-x-6">
@@ -73,7 +73,7 @@
 
 
             <!-- Features -->        
-    <div>
+    <div id='Features'>
       <section class="mx-auto container py-20">
         <div class="flex justify-center items-center flex-col">
           <div class="lg:text-6xl md:text-5xl text-4xl font-black leading-10 text-center text-gray-800 ">
@@ -154,7 +154,7 @@
             
             <!-- How It Works -->
             
-        <div class="mx-auto container f-f-p px-4 xl:px-0 py-24">
+        <div id='How_It_Works' class="mx-auto container f-f-p px-4 xl:px-0 py-24">
             <h1 class="focus:outline-none text-center text-3xl lg:text-4xl font-extrabold  lg:leading-9 tracking-wider text-gray-900">How it works?</h1>
             <div class="md:mt-24 f-f-p">
                 <div class="hidden md:flex justify-center w-full">
@@ -401,17 +401,12 @@
             </div>
                 <div class="text-black flex flex-col md:items-center f-f-l pt-3">
                     <h1 tabindex="0" class="focus:outline-none  text-2xl font-black">Website Name</h1>
-                    <div class="md:flex items-center mt-5 md:mt-10 text-base text-color f-f-l">
-                        <h2  class=" md:mr-6 pb-4 md:py-0 cursor-pointer"><a  class="focus:outline-none  focus:underline hover:text-gray-700" href="javascript:void(0)">Download Now</a> </h2>
-                        <h2  class="cursor-pointer"><a class="focus:outline-none  focus:underline hover:text-gray-700" href="javascript:void(0)">License</a> </h2>
-                    </div>
                     <div class="my-6 text-base text-color f-f-l"> 
                         <ul class="md:flex items-center">
-                            <li class="md:mr-6 cursor-pointer pt-4 lg:py-0"><a href="javascript:void(0)" class="focus:outline-none   focus:underline hover:text-gray-500">About </a></li>
-                            <li class="md:mr-6 cursor-pointer pt-4 lg:py-0"><a href="javascript:void(0)" class="focus:outline-none   focus:underline hover:text-gray-500">Features </a></li>
-                            <li class="md:mr-6 cursor-pointer pt-4 lg:py-0"><a href="javascript:void(0)" class="focus:outline-none   focus:underline hover:text-gray-500">Pricing </a></li>
-                            <li class="md:mr-6 cursor-pointer pt-4 lg:py-0"><a href="javascript:void(0)" class="focus:outline-none   focus:underline hover:text-gray-500">Careers </a></li>
-                            <li class="md:mr-6 cursor-pointer pt-4 lg:py-0"><a href="javascript:void(0)" class="focus:outline-none   focus:underline hover:text-gray-500">Help </a></li>
+                            <li class="md:mr-6 cursor-pointer pt-4 lg:py-0"><a href="/contact" class="focus:outline-none   focus:underline hover:text-gray-500">Contact us </a></li>
+                            <li class="md:mr-6 cursor-pointer pt-4 lg:py-0"><a href="#Features" class="focus:outline-none   focus:underline hover:text-gray-500">Features </a></li>
+                            <li class="md:mr-6 cursor-pointer pt-4 lg:py-0"><a href="javascript:void(0)" class="focus:outline-none   focus:underline hover:text-gray-500">License </a></li>
+                            <li class="md:mr-6 cursor-pointer pt-4 lg:py-0"><a href="#How_It_Works" class="focus:outline-none   focus:underline hover:text-gray-500">Help </a></li>
                             <li class="cursor-pointer pt-4 lg:py-0"><a href="javascript:void(0)" class="focus:outline-none focus:underline  hover:text-gray-500">Privacy Policy </a></li>
                         </ul>
                     </div>
@@ -428,6 +423,12 @@
             </div>
         </div>
     
+        <a href="#navbar" class="flex justify-end">
+            <img src="https://img.icons8.com/external-others-inmotus-design/67/000000/external-Up-round-icons-others-inmotus-design-8.png"/>
+        </a>
         </div>
+
+
+        
        </body>
 </html>
