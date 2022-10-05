@@ -8,7 +8,7 @@
 </p>
 
 
-## Firas
+## Project setup
 - PHP 8.1
 - npm install
 - composer install
