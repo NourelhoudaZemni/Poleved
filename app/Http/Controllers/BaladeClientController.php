@@ -38,21 +38,31 @@ class BaladeClientController extends Controller
     
     public function edit($id)
     {
-        $student = Balade::find($id);
-        return view('baladesclient.edit')->with('balades', $student);
+        $balade = Balade::find($id);
+        $category= Category::all();
+        return view('baladesclient.edit',compact('balade','category'))->with('balades', $balade);
     }
   
     public function update(Request $request, $id)
     {
-        $student = Balade::find($id);
-        $input = $request->all();
-        $student->update($input);
-        return redirect('balade')->with('flash_message', 'balades Updated!');  
+        $balade = Balade::find($id); 
+        return redirect('balade', compact('balade'));  
     }
   
     public function destroy($id)
     {
         Balade::destroy($id);
         return redirect('balade')->with('flash_message', 'balades deleted!');  
+    }
+    public function update_balade_confirm(Request $request , $id)
+    {$balade = balade::find($id);
+     $balade->title= $request->title;
+     $balade->description= $request->description;
+     $balade->price= $request->price;
+     $balade->discount_price= $request->discount_price;
+     $balade->category= $request->category;
+     $balade->quantity= $request->quantity; 
+    $balade->save();
+    return redirect()->back();
     }
 }

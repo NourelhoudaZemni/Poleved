@@ -38,8 +38,7 @@ route::post('/add_category', [AdminController::class, 'add_category']);
 route::get('/delete_category/{id}', [AdminController::class, 'delete_category']);
 
 route::get('/delete_balade/{id}', [AdminController::class, 'delete_balade']);
-
-Route::resource("/balade", BaladeController::class);
+ 
 
 route::get('/view_balade', [AdminController::class, 'view_balade']);
 
@@ -47,7 +46,9 @@ route::get('/view_balade', [AdminController::class, 'view_balade']);
 route::post('/ajouter_balade', [AdminController::class, 'ajouter_balade']); 
  
 
+route::get('/update_balade/{id}', [AdminController::class, 'update_balade']); 
  
-
-
+ 
+route::post('/update_balade_confirm/{id}', [BaladeClientController::class, 'update_balade_confirm']); 
 Route::resource("/balade", BaladeClientController::class);
+ 

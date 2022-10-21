@@ -74,6 +74,7 @@
         
         <td  class="att">{{$item->price}}</td> 
                                         <td class="bouton">
+                                            
                                             <a class="att" href="{{ url('/balade/' . $item->id) }}" title="View balade"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
     
   <a class="att" href="{{ url('/balade/' . $item->id . '/edit') }}" title="Edit balade"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
@@ -82,6 +83,8 @@
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete balade" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                             </form> 
+
+                                           
                                         </td>
                                     </tr>
                                 @endforeach

@@ -55,5 +55,8 @@ return view('admin.balade', compact('category'));
       $balade->delete();
       return redirect()->back();
      }
- 
+ public function update_balade(){
+  return view('admin.update_balade');
+
+ }
 }
