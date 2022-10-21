@@ -22,12 +22,6 @@ return view('admin.category', compact('data'));
 return view('admin.balade', compact('category'));
 
  }
- public function add_category(Request $request){
-    $data = new category;
-    $data -> category_name =$request -> category;
-    $data -> save();
-    return redirect()->back()-> with('message','Category added successfully'); 
-     }
 
      public function ajouter_balade(Request $request){
      $balade = new balade;
@@ -36,13 +30,20 @@ return view('admin.balade', compact('category'));
      $balade -> price = $request -> price;
      $balade -> quantity = $request -> quantity;
      $balade -> discount_price = $request -> discount_price;
-     $balade -> category = $request -> category; 
+     $balade -> category = $request -> category;  
+      
      $balade -> save();
 
       return redirect()->back()->with('message', 'balade ajoutée avec succés');
        }
 
-
+       public function add_category(Request $request){
+        $data = new category;
+        $data -> category_name =$request -> category;
+        $data -> save();
+        return redirect()->back()-> with('message','Category added successfully'); 
+         }
+    
      public function delete_category($id){
       $data=category::find($id);
       $data->delete();
@@ -54,9 +55,5 @@ return view('admin.balade', compact('category'));
       $balade->delete();
       return redirect()->back();
      }
-
-     public function show_balade(){
-$balade = balade::all();
-      return view('admin.show_balade', compact ('balade'));
-     }
+ 
 }

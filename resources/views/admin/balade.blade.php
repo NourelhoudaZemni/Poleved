@@ -99,7 +99,7 @@ display: flex;
                     </div>
                     <div class="div_design">
                     <label> Photo </label>
-                        <input  type="file" name="image"  > 
+                        <input  type="file" name="photos"  > 
                     </div>
                      <div> 
                      <input type="submit" class="btn btn-primary"   value="Add Balade">
@@ -111,8 +111,7 @@ display: flex;
             </div> 
       </div> 
  
-    </div> 
-    @include('admin.script')
+    </div>  
    <!-- End custom js for this page -->
   </body>
 </html>

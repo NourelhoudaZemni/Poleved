@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string("quantity")-> nullable();
             $table->string("price")-> nullable();
             $table->string("discount_price")-> nullable();
+            
+            $table->string('photo',255)->default('');
             $table->timestamps();
         });
     }

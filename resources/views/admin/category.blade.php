@@ -80,9 +80,7 @@ href="{{url('delete_category', $data->id)}}"> DELETE </a>
             </div>
             
         </div>
-
-
-        @include('admin.script') 
+ 
 </div>
   </body>
 </html>
