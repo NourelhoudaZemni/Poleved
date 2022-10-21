@@ -11,6 +11,6 @@ class Balade extends Model
     
         protected $table = 'balades';
         protected $primaryKey = 'id';
-        protected $fillable = ['name', 'address', 'mobile'];
-    
+        protected $fillable = ['title','description', 'price', 
+        'image','category','quantity','discount_price'];
 }
