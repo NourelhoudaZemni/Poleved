@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\BaladeController;
 use App\Http\Controllers\AdminController;
+
+use App\Http\Controllers\BaladeClientController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,7 +45,9 @@ route::get('/view_balade', [AdminController::class, 'view_balade']);
 
 
 route::post('/ajouter_balade', [AdminController::class, 'ajouter_balade']); 
+ 
 
-route::get('/show_balade', [AdminController::class, 'show_balade']);
+ 
 
 
+Route::resource("/balade", BaladeClientController::class);
