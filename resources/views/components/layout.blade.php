@@ -18,20 +18,15 @@
         <!-- For large and Medium-sized Screen -->
         <div class="flex justify-between ">
             <div class="hidden sm:flex flex-row items-center space-x-6">
-                <img class="  p-1 rounded  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer"
-                     src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg1.svg" alt="twitter" />
-                <img class="  p-1 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer"
-                     src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg2.svg" alt="facebook" />
-                <img class="  p-1 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer"
-                     src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg3.svg" alt="linkdin" />
-                <img class="  p-1 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer"
-                     src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg4.svg" alt="instagram" />
+                <a href={{ route('velo.index') }}>Bikes</a>
+                <a href={{ route('event.index') }}>Events</a>
+
             </div>
             <div class=" flex space-x-3 items-center">
                 <a href="/" class="pl-8 md:block hidden">
                     <img src="../../assets/logo.svg" class="w-[40px]" alt="logo">
                 </a>
-                <h1 class=" font-normal text-2xl leading-6 text-gray-800">MondoBikes</h1>
+                <h1 class=" font-normal text-2xl leading-6 text-gray-800"><a href="/">MondoBikes</a></h1>
             </div>
             <div class="hidden sm:flex flex-row space-x-4">
                 <button
