@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CategorieVeloController;
+use App\Http\Controllers\TypeController;
+use App\Http\Controllers\VeloController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +27,9 @@ Route::view('/signup', 'signup');
 Route::view('/profile', 'profile');
 Route::view('/contact', 'contact');
 Route::view('/notFound404', 'notFound404');
+
+Route::resource('/velo', VeloController::class);
+Route::resource('/type', TypeController::class);
 
 
 
