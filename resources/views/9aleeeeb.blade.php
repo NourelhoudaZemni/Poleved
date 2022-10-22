@@ -8,14 +8,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('default')
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
 
-    <div class="bg-indigo-50">
-
-        @yield('content')
+    <div class="bg-gray-100">
 
     </div>
 

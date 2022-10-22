@@ -1,10 +1,7 @@
 <?php
 
-use App\Http\Controllers\CategorieVeloController;
-use App\Http\Controllers\TypeController;
-use App\Http\Controllers\VeloController;
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,20 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
+
+
+Route::resource("/event", EventController::class);
+
+
+
+Route::view('/','welcome');
 Route::view('/admin', 'admin');
 Route::view('/login', 'login');
 Route::view('/signup', 'signup');
 Route::view('/profile', 'profile');
 Route::view('/contact', 'contact');
 Route::view('/notFound404', 'notFound404');
-
-Route::resource('/velo', VeloController::class);
-Route::resource('/type', TypeController::class);
 
 
 
