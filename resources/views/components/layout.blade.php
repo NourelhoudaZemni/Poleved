@@ -20,6 +20,7 @@
             <div class="hidden sm:flex flex-row items-center space-x-6">
                 <a href={{ route('velo.index') }}>Bikes</a>
                 <a href={{ route('event.index') }}>Events</a>
+                <a href={{ route('location.index') }}>Location</a>
 
             </div>
             <div class=" flex space-x-3 items-center">
