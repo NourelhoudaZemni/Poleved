@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Velo extends Model
+class Type extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['marque', 'etat', 'prix', 'image', 'type'];
+    protected $fillable = ['type_name'];
 }

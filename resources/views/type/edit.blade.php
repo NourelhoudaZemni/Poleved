@@ -1,4 +1,4 @@
-@extends('.9aleeeeb')
+@extends('type.layout')
 
 @section('content')
 

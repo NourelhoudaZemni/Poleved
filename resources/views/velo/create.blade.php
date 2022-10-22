@@ -1,4 +1,4 @@
-@extends('.9aleeeeb')
+@extends('velo.layout')
 
 @section('content')
 
@@ -39,6 +39,16 @@
                     <div class="col-sm-10">
                         <input type="number" name="prix" class="form-control" />
                     </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-label-form">Type</label>
+                    <select class="col-sm-3" name="type">
+                        <option value="" selected=""> Ajouter une catégorie</option>
+                        @foreach ($type as $type)
+                            <option value="{{$type ->type_name}}"> {{$type -> type_name}}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="row mb-4">

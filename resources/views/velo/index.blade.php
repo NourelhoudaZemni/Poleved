@@ -1,4 +1,4 @@
-@extends('.9aleeeeb')
+@extends('velo.layout')
 
 @section('content')
 
@@ -26,6 +26,7 @@
                     <th>Marque</th>
                     <th>Etat</th>
                     <th>Prix</th>
+                    <th>Type</th>
                     <th>Action</th>
                 </tr>
                 @if(count($data) > 0)
@@ -37,6 +38,7 @@
                             <td>{{ $row->marque }}</td>
                             <td>{{ $row->etat }}</td>
                             <td>{{ $row->prix }}</td>
+                            <td>{{ $row->type }}</td>
                             <td>
                                 <form method="post" action="{{ route('velo.destroy', $row->id) }}">
                                     @csrf
