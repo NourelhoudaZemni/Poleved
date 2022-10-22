@@ -48,7 +48,8 @@ route::post('/ajouter_balade', [AdminController::class, 'ajouter_balade']);
 
 route::get('/update_balade/{id}', [AdminController::class, 'update_balade']); 
  
- 
+route::get('/All_Balades', [BaladeClientController::class, 'All_Balades']); 
+  
 route::post('/update_balade_confirm/{id}', [BaladeClientController::class, 'update_balade_confirm']); 
 Route::resource("/balade", BaladeClientController::class);
  

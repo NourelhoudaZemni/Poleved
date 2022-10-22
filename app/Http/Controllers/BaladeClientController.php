@@ -65,4 +65,11 @@ class BaladeClientController extends Controller
     $balade->save();
     return redirect()->back();
     }
+
+    public function All_Balades(){
+$balade=Balade::all();
+
+        return view('baladesclient.display', compact('balade'));
+
+    }
 }
