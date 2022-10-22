@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,11 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
+
+
+Route::resource("/event", EventController::class);
+
+
+
+Route::view('/','welcome');
 Route::view('/admin', 'admin');
 Route::view('/login', 'login');
 Route::view('/signup', 'signup');
