@@ -27,7 +27,7 @@ Route::resource('/type', TypeController::class);
 
 
 Route::view('/','welcome');
-Route::view('/admin', 'admin');
+Route::view('/admin', 'admin.admin');
 Route::view('/login', 'login');
 Route::view('/signup', 'signup');
 Route::view('/profile', 'profile');
