@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\TypeController;
+use App\Http\Controllers\VeloController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::resource("/event", EventController::class);
+
+Route::resource('/velo', VeloController::class);
+Route::resource('/type', TypeController::class);
 
 
 
