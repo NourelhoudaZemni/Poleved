@@ -1,4 +1,4 @@
-@extends('components.layout')
+@extends('admin.layout')
 
 @section('content')
 
@@ -55,7 +55,7 @@
                 <div class="flex items-center justify-between mt-9">
                     <a href="{{ route('velo.index') }}" aria-label="add user" role="button"
                        class="focus:ring-2 focus:ring-offset-2 focus:ring-white focus:outline-none px-6 py-3 bg-white hover:bg-opacity-80 shadow rounded text-sm text-indigo-800">Cancel</a>
-                    <input type="submit" value="Véalidate" aria-label="add user" role="button"
+                    <input type="submit" value="Validate" aria-label="add user" role="button"
                            class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-800 focus:outline-none px-6 py-3 bg-indigo-700 hover:bg-opacity-80 shadow rounded text-sm text-white"/>
                 </div>
             </form>
