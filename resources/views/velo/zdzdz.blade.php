@@ -1,46 +1,66 @@
-@extends('components.layout')
-
+@extends('eventss.layout')
 @section('content')
-
-    <div class="card">
-        <div class="card-header">Edit Student</div>
-        <div class="card-body">
-            <form method="post" action="{{ route('velo.update', $velo->id) }}" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
-                <div class="row mb-3">
-                    <label class="col-sm-2 col-label-form">Marque</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="marque" class="form-control" value="{{ $velo->marque }}"/>
+    <div class="container">
+        <div class="row" style="margin:20px;">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Laravel 9 CRUD (Create, Read, Update and Delete)</h2>
                     </div>
-                </div>
-                <div class="row mb-3">
-                    <label class="col-sm-2 col-label-form">Etat</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="etat" class="form-control" value="{{ $velo->etat }}"/>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label class="col-sm-2 col-label-form">Prix</label>
-                    <div class="col-sm-10">
-                        <input type="number" name="prix" class="form-control" value="{{ $velo->prix }}"/>
-                    </div>
-                </div>
-                <div class="row mb-4">
-                    <label class="col-sm-2 col-label-form">Image</label>
-                    <div class="col-sm-10">
-                        <input type="file" name="student_image"/>
+                    <div class="card-body">
+                        <a href="{{ url('/event/create') }}" class="btn btn-success btn-sm" title="Add New Student">
+                            Add New
+                        </a>
                         <br/>
-                        <img src="{{ asset('images/' . $velo->image) }}" width="100" class="img-thumbnail"/>
-                        <input type="hidden" name="hidden_image" value="{{ $velo->image }}"/>
+                        <br/>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>Mobile</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($events as $item)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->adress }}</td>
+                                        <td>{{ $item->mobile }}</td>
+
+                                        <td>
+                                            <a href="{{ url('/event/' . $item->id) }}" title="View Student">
+                                                <button class="btn btn-info btn-sm"><i class="fa fa-eye"
+                                                                                       aria-hidden="true"></i> View
+                                                </button>
+                                            </a>
+                                            <a href="{{ url('/event/' . $item->id . '/edit') }}" title="Edit Student">
+                                                <button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"
+                                                                                          aria-hidden="true"></i> Edit
+                                                </button>
+                                            </a>
+
+                                            <form method="POST" action="{{ url('/event' . '/' . $item->id) }}"
+                                                  accept-charset="UTF-8" style="display:inline">
+                                                {{ method_field('DELETE') }}
+                                                {{ csrf_field() }}
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                        title="Delete Student" onclick="return confirm(" Confirm delete?
+                                                ")"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-                <div class="text-center">
-                    <input type="hidden" name="hidden_id" value="{{ $velo->id }}"/>
-                    <input type="submit" class="btn btn-primary" value="Edit"/>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
-
-@endsection('content')
+@endsection

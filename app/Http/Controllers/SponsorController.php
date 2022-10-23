@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Event;
+use App\Models\Sponsor;
 use Illuminate\Http\Request;
 
-class EventController extends Controller
+class SponsorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,9 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
-        return view ('events.index')->with('events', $events);
+        $data = Sponsor::latest()->paginate(5);
+        return view('sponsor.index', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
+
     }
 
     /**
@@ -25,7 +26,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('events.create');
+        return view('sponsor.create');
     }
 
     /**
@@ -36,14 +37,13 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $event = new Event();
-        $event->name = $request->name;
-        $event->adress = $request->adress;
-        $event->mobile = $request->mobile;
-        $event->save();
+        $sponsor = new Sponsor;
+        $sponsor->name = $request->name;
+        $sponsor->subscriptionType = $request->subscriptionType;
+        $sponsor->description = $request->description;
+        $sponsor->save();
+        return redirect()->route('sponsor.index')->with('success', 'Sponsor created successfully.');
 
-//        Event::create($input);
-        return redirect('/event')->with('flash_message', 'Event Addedd!');
     }
 
     /**
@@ -54,8 +54,8 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        $event = Event::find($id);
-        return view('events.show')->with('event', $event);
+        $sponsor = Sponsor::find($id);
+        return view('sponsor.show', ['sponsor' => Sponsor::findOrFail($id)]);
     }
 
     /**
@@ -66,8 +66,8 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        $event = Event::find($id);
-        return view('events.edit')->with('event', $event);
+        $sponsor = Sponsor::find($id);
+        return view('sponsor.edit', ['sponsor' => Sponsor::findOrFail($id)]);
     }
 
     /**
@@ -79,10 +79,12 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $event = Event::find($id);
-        $input = $request->all();
-        $event->update($input);
-        return redirect('/event')->with('flash_message', 'student Updated!');
+        $sponsor = Sponsor::findOrFail($id);
+        $sponsor->name = $request->name;
+        $sponsor->subscriptionType = $request->subscriptionType;
+        $sponsor->description = $request->description;
+        $sponsor->save();
+        return redirect()->route('sponsor.index')->with('success', 'Sponsor updated successfully.');
     }
 
     /**
@@ -93,7 +95,8 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        Event::destroy($id);
-        return redirect('/event')->with('flash_message', 'Student deleted!');
+        $sponsor = Sponsor::findOrFail($id);
+        $sponsor->delete();
+        return redirect()->route('sponsor.index')->with('success', 'Sponsor deleted successfully.');
     }
 }

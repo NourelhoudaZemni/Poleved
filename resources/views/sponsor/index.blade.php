@@ -15,11 +15,11 @@
             <div class="sm:flex items-center justify-between">
                 <p tabindex="0"
                    class="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800  ">
-                    Bike's Category List</p>
+                    Sponsors List</p>
                 <div>
                     <button
                         class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 inline-flex sm:ml-3 mt-4 sm:mt-0 items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded">
-                        <a href="{{ route('type.create') }}" class="text-sm font-medium leading-none text-white">Add Bike's Category</a>
+                        <a href="{{ route('sponsor.create') }}" class="text-sm font-medium leading-none text-white">Add New Sponsor</a>
                     </button>
                 </div>
             </div>
@@ -28,7 +28,10 @@
             <table class="w-full whitespace-nowrap">
                 <thead>
                 <tr tabindex="0" class="focus:outline-none h-16 w-full text-sm leading-none text-gray-800  ">
-                    <th class="font-normal text-left pl-20">Type</th>
+                    <th class="font-normal text-left pl-4">Name</th>
+                    <th class="font-normal text-left pl-12">Subscription Type</th>
+                    <th class="font-normal text-left pl-12">Description</th>
+                    <th class="font-normal text-left pl-12">Added at</th>
                 </tr>
                 </thead>
                 <tbody class="w-full">
@@ -37,20 +40,28 @@
                         <tr tabindex="0"
                             class="focus:outline-none h-20 text-sm leading-none text-gray-800   bg-white   hover:bg-gray-100   border-b border-t border-gray-100 ">
                             <td class="pl-12">
-                                <p class="text-sm font-medium leading-none text-gray-800">{{ $row->type_name }}</p>
+                                <p class="font-medium">{{ $row->name }}</p>
+                            </td>
+                            <td class="pl-20">
+                                <p class="font-medium">{{ $row->subscriptionType }}</p>
+                            </td>
+                            <td class="pl-20">
+                                <p class="font-medium">{{ $row->description }}</p>
+                            </td>
+                            <td class="pl-20">
+                                <p class="font-medium">{{ $row->created_at }}</p>
                             </td>
                             <td class="px-7 2xl:px-0">
-                                <form class="flex" method="post" action="{{ route('type.destroy', $row->id) }}">
+                                <form class="flex" method="post" action="{{ route('sponsor.destroy', $row->id) }}">
                                     @csrf
                                     @method('DELETE')
-                                    <br>
                                     <div tabindex="0"
                                          class="text-center focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
-                                        <a href="{{ route('type.show', $row->id) }}">View</a>
+                                        <a href="{{ route('sponsor.show', $row->id) }}">View</a>
                                     </div>
                                     <div tabindex="0"
                                          class="text-center focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
-                                        <a href="{{ route('type.edit', $row->id) }}">Edit</a>
+                                        <a href="{{ route('sponsor.edit', $row->id) }}">Edit</a>
                                     </div>
                                     <div tabindex="0"
                                          class="text-center focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
@@ -62,7 +73,7 @@
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="5" class="text-center">No Bike's Category Found</td>
+                        <td colspan="5" class="text-center">No Sponsor Found</td>
                     </tr>
                 @endif
                 </tbody>

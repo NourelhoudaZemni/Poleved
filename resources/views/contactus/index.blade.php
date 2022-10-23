@@ -1,67 +1,61 @@
-@extends('contactus.layout')
+@extends('admin.layout')
 @section('content')
-    <div class="container">
-        <div class="row" style="margin:20px;">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Laravel 9 CRUD </h2>
-                    </div>
-                    <div class="card-body">
-                        <a href="{{ url('/contactus/create') }}" class="btn btn-success btn-sm" title="Add New">
-                            Add New
-                        </a>
-                        <br/>
-                        <br/>
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Full Name</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Message</th>
-                                    <th>Actions</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($contactus as $item)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->full_name }}</td>
-                                        <td>{{ $item->email }}</td>
-                                        <td>{{ $item->phone }}</td>
-                                        <td>{{ $item->message }}</td>
-
-                                        <td>
-                                            <a href="{{ url('/contactus/' . $item->id) }}" title="View Student">
-                                                <button class="btn btn-info btn-sm"><i class="fa fa-eye"
-                                                                                       aria-hidden="true"></i> View
-                                                </button>
-                                            </a>
-                                            <a href="{{ url('/contactus/' . $item->id . '/edit') }}" title="Edit Student">
-                                                <button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"
-                                                                                          aria-hidden="true"></i> Edit
-                                                </button>
-                                            </a>
-
-                                            <form method="POST" action="{{ url('/contactus' . '/' . $item->id) }}"
-                                                  accept-charset="UTF-8" style="display:inline">
-                                                {{ method_field('DELETE') }}
-                                                {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete "
-                                                        onclick="return confirm(" Confirm delete?")"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+    <div class="w-full sm:px-6">
+        <div class="px-4 md:px-10 py-4 md:py-7 bg-gray-100 rounded-tl-lg rounded-tr-lg">
+            <div class="sm:flex items-center justify-between">
+                <p tabindex="0"
+                   class="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800  ">
+                    Contacts & Messages</p>
             </div>
         </div>
+        <div class="bg-white shadow px-4 md:px-10 pt-4 md:pt-7 pb-5 overflow-y-auto">
+            <table class="w-full whitespace-nowrap">
+                <thead>
+                <tr tabindex="0" class="focus:outline-none h-16 w-full text-sm leading-none text-gray-800  ">
+                    <th class="font-normal text-left pl-4">Full Name</th>
+                    <th class="font-normal text-left pl-12">Email</th>
+                    <th class="font-normal text-left pl-12">Phone</th>
+                    <th class="font-normal text-left pl-12">Message</th>
+                    <th class="font-normal text-left pl-12">Sended at</th>
+                </tr>
+                </thead>
+                <tbody class="w-full">
+                @if(count($contactus) > 0)
+                    @foreach($contactus as $row)
+                        <tr tabindex="0"
+                            class="focus:outline-none h-20 text-sm leading-none text-gray-800   bg-white   hover:bg-gray-100   border-b border-t border-gray-100 ">
+                            <td class="pl-12">
+                                <p class="font-medium">{{ $row->full_name }}</p>
+                            </td>
+                            <td class="pl-20">
+                                <p class="font-medium">{{ $row->email }}</p>
+                            </td>
+                            <td class="pl-20">
+                                <p class="font-medium">{{ $row->phone }}</p>
+                            </td>
+                            <td class="pl-20">
+                                <p class="font-medium">{{ $row->message }}</p>
+                            </td>
+                            <td class="pl-20">
+                                <p class="font-medium">{{ $row->created_at }}</p>
+                            </td>
+                            <td class="px-7 2xl:px-0">
+                                    <div tabindex="0"
+                                         class="text-center focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
+                                        <a href="{{ route('contactus.show', $row->id) }}">View</a>
+                                    </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
+                    <tr>
+                        <td colspan="5" class="text-center">No Messages or Contacts Found</td>
+                    </tr>
+                @endif
+                </tbody>
+            </table>
+            {!! $contactus->links() !!}
+        </div>
     </div>
+
 @endsection
