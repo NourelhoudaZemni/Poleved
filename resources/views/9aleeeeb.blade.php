@@ -12,8 +12,8 @@
 
 <body>
 
-    <div class="bg-indigo-50">
-       
+    <div class="bg-gray-100">
+
     </div>
 
 
