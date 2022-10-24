@@ -27,7 +27,7 @@
                 @method('PUT')
                 <div class="flex items-center justify-center">
                     <img src="{{ asset('images/' . $velo->image) }}" width="100" class="img-thumbnail"/>
-                    <input type="hidden" name="hidden_image" value="{{ $velo->image }}"/>
+                    <input type="hidden" name="hidden_image"/>
                 </div>
                 <br>
                 <div class="flex items-center space-x-9">

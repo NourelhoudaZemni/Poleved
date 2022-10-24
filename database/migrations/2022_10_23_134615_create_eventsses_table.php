@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string("sponsor");
             $table->string("participants");
             $table->string("places");
+            $table->string('image');
             $table->timestamps();
         });
     }

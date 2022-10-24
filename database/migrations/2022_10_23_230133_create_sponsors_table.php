@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("name");
             $table->string("subscriptionType");
             $table->string("description");
+            $table->string('image');
             $table->timestamps();
         });
     }

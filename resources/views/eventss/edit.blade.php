@@ -3,13 +3,15 @@
 
     <div class="flex justify-center w-full sm:px-6">
         <div class="px-4 md:px-10 pt-6 md:pt-12 md:pb-4 pb-7">
-            <p class="text-center text-2xl font-semibold mb-10">Add New Event</p>
+            <p class="text-center text-2xl font-semibold mb-10">Edit Event</p>
             <form method="post" action="{{ route('event.update', $event->id) }}" enctype="multipart/form-data" class="mt-11">
                 @csrf
                 @method("PATCH")
-                {{--                <div class="flex items-center justify-center">--}}
-                {{--                    <input type="file" name="image"/>--}}
-                {{--                </div>--}}
+                <div class="flex items-center justify-center">
+                    <img src="{{ asset('images/' . $event->image) }}" width="100" class="img-thumbnail"/>
+                    <input type="hidden" name="hidden_image" value="{{ asset('images/' . $event->image) }}"/>
+                </div>
+                <br>
                 <div class="flex items-center space-x-9">
                     <input value="{{$event->name}}" type="text" name="name" placeholder="Name"
                            class="focus:ring-2 focus:ring-gray-400 w-1/2 focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "/>

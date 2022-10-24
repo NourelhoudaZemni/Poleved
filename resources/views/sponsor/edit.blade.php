@@ -7,9 +7,11 @@
             <form method="post" action="{{ route('sponsor.update', $sponsor->id) }}" enctype="multipart/form-data" class="mt-11">
                 @csrf
                 @method("PATCH")
-                {{--                <div class="flex items-center justify-center">--}}
-                {{--                    <input type="file" name="image"/>--}}
-                {{--                </div>--}}
+                <div class="flex items-center justify-center">
+                    <img src="{{ asset('images/' . $sponsor->image) }}" width="100" class="img-thumbnail"/>
+                    <input type="file" name="hidden_image" value="{{ $sponsor->image }}"/>
+                </div>
+                <br>
                 <div class="flex items-center space-x-9">
                     <input value="{{$sponsor->name}}" type="text" name="name" placeholder="Name"
                            class="focus:ring-2 focus:ring-gray-400 w-1/2 focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "/>

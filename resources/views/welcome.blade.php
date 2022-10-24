@@ -13,7 +13,7 @@
                     class="text-3xl lg:text-6xl xl:text-7xl font-black text-indigo-700 text-center md:text-left tracking-tighter f-f-i md:w-7/12 leading-tight text-heading-color">
                     ONE WEBSITE TO DISCOVER THE WORLD</h1>
                 <h2 class="md:w-8/12 my-4 text-center md:text-left md:my-8 text-gray-700 text-lg lg:text-2xl">Do you
-                    want to go outside of your and get a nice ride !</h2>
+                    want to go outside your and get a nice ride !</h2>
             </div>
             <div class="w-1/2 sm:w-3/5 h-64 md:h-auto m-auto flex items-center overflow-hidden">
                 <img class="md:absolute md:w-1/2 md:-ml-28"

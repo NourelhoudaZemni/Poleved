@@ -37,10 +37,14 @@ class SponsorController extends Controller
      */
     public function store(Request $request)
     {
+        $file_name = time() . '.' . request()->image->getClientOriginalExtension();
+        request()->image->move(public_path('images'), $file_name);
+
         $sponsor = new Sponsor;
         $sponsor->name = $request->name;
         $sponsor->subscriptionType = $request->subscriptionType;
         $sponsor->description = $request->description;
+        $sponsor->image = $file_name;
         $sponsor->save();
         return redirect()->route('sponsor.index')->with('success', 'Sponsor created successfully.');
 
@@ -79,10 +83,19 @@ class SponsorController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $image = $request->hidden_image;
+
+        if($request->image != '')
+        {
+            $image = time() . '.' . request()->image->getClientOriginalExtension();
+
+            request()->image->move(public_path('images'), $image);
+        }
         $sponsor = Sponsor::findOrFail($id);
         $sponsor->name = $request->name;
         $sponsor->subscriptionType = $request->subscriptionType;
         $sponsor->description = $request->description;
+        $sponsor->image = $image;
         $sponsor->save();
         return redirect()->route('sponsor.index')->with('success', 'Sponsor updated successfully.');
     }

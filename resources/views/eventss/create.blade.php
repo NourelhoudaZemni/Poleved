@@ -5,9 +5,9 @@
             <p class="text-center text-2xl font-semibold mb-10">Add New Event</p>
             <form method="post" action="{{ route('event.store') }}" enctype="multipart/form-data" class="mt-11">
                 @csrf
-{{--                <div class="flex items-center justify-center">--}}
-{{--                    <input type="file" name="image"/>--}}
-{{--                </div>--}}
+                <div class="flex items-center justify-center">
+                    <input type="file" name="image"/>
+                </div>
                 <div class="flex items-center space-x-9">
                     <input type="text" name="name" placeholder="Name"
                            class="focus:ring-2 focus:ring-gray-400 w-1/2 focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "/>
@@ -29,22 +29,20 @@
                               class="focus:ring-2 focus:ring-gray-400 w-full focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "></textarea>
                 </div>
                 <div class="flex items-center space-x-9">
-                    <input type="text" name="sponsor" placeholder="sponsor"
-                           class="focus:ring-2 focus:ring-gray-400 w-1/2 focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "/>
-                    <input type="text" name="participants" placeholder="participants" min="0"
-                           class="focus:ring-2 focus:ring-gray-400 w-1/2 focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "/>
+                    <input type="text" name="participants" placeholder="Participants" min="0"
+                           class="focus:ring-2 focus:ring-gray-400 w-full focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "/>
                 </div>
                 <div class="flex items-center space-x-9 mt-8">
-{{--                    <div tabindex="0"--}}
-{{--                         class="focus:outline-none focus:ring-2 focus:ring-gray-400 w-1/2 bg-white  border rounded border-gray-200   py-2.5 px-3">--}}
-{{--                        <select name="type" aria-label="select an option"--}}
-{{--                                class="text-sm text-gray-500 w-full focus:outline-none">--}}
-{{--                            <option selected="" disabled="" value="">Category</option>--}}
-{{--                            @foreach ($type as $type)--}}
-{{--                                <option value="{{$type ->type_name}}"> {{$type -> type_name}}</option>--}}
-{{--                            @endforeach--}}
-{{--                        </select>--}}
-{{--                    </div>--}}
+                    <div tabindex="0"
+                         class="focus:outline-none focus:ring-2 focus:ring-gray-400 w-full bg-white  border rounded border-gray-200   py-2.5 px-3">
+                        <select name="sponsor" aria-label="select an option"
+                                class="text-sm text-gray-500 w-full focus:outline-none">
+                            <option selected="" disabled="" value="">Choose the sponsor</option>
+                            @foreach ($sponsor as $sponsor)
+                                <option value="{{$sponsor -> name}}"> {{$sponsor -> name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 <div class="flex items-center justify-between mt-9">
                     <a href="{{ route('event.index') }}" aria-label="add user" role="button"

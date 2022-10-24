@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Eventss;
+use App\Models\Sponsor;
 use Illuminate\Http\Request;
 
 class EventssController extends Controller
@@ -25,7 +26,8 @@ class EventssController extends Controller
      */
     public function create()
     {
-        return view('eventss.create');
+        $sponsor = Sponsor::all();
+        return view('eventss.create',compact('sponsor'));
     }
 
     /**
@@ -36,6 +38,9 @@ class EventssController extends Controller
      */
     public function store(Request $request)
     {
+        $file_name = time() . '.' . request()->image->getClientOriginalExtension();
+        request()->image->move(public_path('images'), $file_name);
+
         $eventss = new Eventss;
         $eventss->name = $request->name;
         $eventss->date = $request->date;
@@ -45,6 +50,7 @@ class EventssController extends Controller
         $eventss->mobile = $request->mobile;
         $eventss->sponsor = $request->sponsor;
         $eventss->participants = $request->participants;
+        $eventss->image = $file_name;
         $eventss->save();
         return redirect()->route('event.index')->with('success', 'Eventss created successfully.');
 
@@ -81,6 +87,13 @@ class EventssController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $image = $request->hidden_image;
+        if($request->image != '')
+        {
+            $image = time() . '.' . request()->image->getClientOriginalExtension();
+
+            request()->image->move(public_path('images'), $image);
+        }
         $eventss = Eventss::findOrFail($id);
         $eventss->name = $request->name;
         $eventss->date = $request->date;
@@ -89,6 +102,7 @@ class EventssController extends Controller
         $eventss->mobile = $request->mobile;
         $eventss->sponsor = $request->sponsor;
         $eventss->participants = $request->participants;
+        $eventss->image = $image;
         $eventss->save();
         return redirect()->route('event.index')->with('success', 'Eventss updated successfully.');
     }

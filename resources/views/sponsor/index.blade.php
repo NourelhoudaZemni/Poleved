@@ -28,6 +28,7 @@
             <table class="w-full whitespace-nowrap">
                 <thead>
                 <tr tabindex="0" class="focus:outline-none h-16 w-full text-sm leading-none text-gray-800  ">
+                    <th class="font-normal text-left pl-4">Picture</th>
                     <th class="font-normal text-left pl-4">Name</th>
                     <th class="font-normal text-left pl-12">Subscription Type</th>
                     <th class="font-normal text-left pl-12">Description</th>
@@ -39,6 +40,15 @@
                     @foreach($data as $row)
                         <tr tabindex="0"
                             class="focus:outline-none h-20 text-sm leading-none text-gray-800   bg-white   hover:bg-gray-100   border-b border-t border-gray-100 ">
+                            <td class="pl-4 cursor-pointer">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10">
+                                        <img class="w-full h-full" src="{{ asset('images/' . $row->image) }}" width="75"
+                                             alt="UX Design and Visual Strategy"/>
+                                    </div>
+                                </div>
+                                <br>
+                            </td>
                             <td class="pl-12">
                                 <p class="font-medium">{{ $row->name }}</p>
                             </td>

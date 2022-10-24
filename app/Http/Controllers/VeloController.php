@@ -102,11 +102,11 @@ class VeloController extends Controller
 
         $image = $request->hidden_image;
 
-        if($request->image != '')
-        {
-            $image = time() . '.' . request()->image->getClientOriginalExtension();
+        if($request->image != '') {
 
-            request()->image->move(public_path('images'), $image);
+            $file_name = time() . '.' . request()->image->getClientOriginalExtension();
+
+            request()->image->move(public_path('images'), $file_name);
         }
 
         $velo = Velo::find($request->hidden_id);
