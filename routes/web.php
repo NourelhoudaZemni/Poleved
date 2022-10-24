@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\ContactUsController;
-use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventssController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\VeloController;
 use Illuminate\Support\Facades\Route;
@@ -20,11 +21,15 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
-Route::resource("/event", EventController::class);
+Route::resource("sponsor", SponsorController::class);
+Route::resource("/event", EventssController::class);
 Route::resource('/location', LocationController::class);
 Route::resource('/velo', VeloController::class);
 Route::resource('/type', TypeController::class);
+//FrontEnd
+Route::get('/OurBikes', [VeloController::class, 'OurBikes']);
+Route::get('/OurEvents', [EventssController::class, 'OurEvents'])->name('OurEvents');
+Route::get('/YourLocations', [LocationController::class, 'indexF'])->name('YourLocations');
 
 Route::resource('/contactus', ContactUsController::class);
 

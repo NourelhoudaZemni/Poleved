@@ -21,7 +21,7 @@
                 <p class="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 mt-6 ">$ {{ $location->duree }}</p>
 
 
-                <a href="{{ route('location.index') }}">
+                <a href="/YourLocations">
                     <button class="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 lg:mt-12 mt-6">Back To Bike List</button>
                 </a>
             </div>

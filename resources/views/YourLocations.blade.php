@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('components.layout')
 
 @section('content')
 
@@ -14,12 +14,12 @@
         <div class="px-4 md:px-10 py-4 md:py-7 bg-gray-100 rounded-tl-lg rounded-tr-lg">
             <div class="sm:flex items-center justify-between">
                 <p tabindex="0"
-                   class="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800  ">Bookings</p>
+                   class="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">My Bookings</p>
                 <div>
-{{--                    <button--}}
-{{--                        class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 inline-flex sm:ml-3 mt-4 sm:mt-0 items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded">--}}
-{{--                        <a href="{{ route('location.create') }}" class="text-sm font-medium leading-none text-white">Book A Bike</a>--}}
-{{--                    </button>--}}
+                                        <button
+                                            class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 inline-flex sm:ml-3 mt-4 sm:mt-0 items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded">
+                                            <a href="{{ route('location.create') }}" class="text-sm font-medium leading-none text-white">Book A Bike</a>
+                                        </button>
                 </div>
             </div>
         </div>
@@ -55,14 +55,14 @@
                                          class="text-center focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
                                         <a href="{{ route('location.show', $row->id) }}">View</a>
                                     </div>
-{{--                                    <div tabindex="0"--}}
-{{--                                         class="text-center focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">--}}
-{{--                                        <a href="{{ route('location.edit', $row->id) }}">Edit</a>--}}
-{{--                                    </div>--}}
-{{--                                    <div tabindex="0"--}}
-{{--                                         class="text-center focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">--}}
-{{--                                        <input type="submit" value="Delete"/>--}}
-{{--                                    </div>--}}
+                                                                        <div tabindex="0"
+                                                                             class="text-center focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
+                                                                            <a href="{{ route('location.edit', $row->id) }}">Edit</a>
+                                                                        </div>
+                                                                        <div tabindex="0"
+                                                                             class="text-center focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
+                                                                            <input type="submit" value="Delete"/>
+                                                                        </div>
                                 </form>
                             </td>
                         </tr>

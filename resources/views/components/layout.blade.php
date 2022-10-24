@@ -18,9 +18,9 @@
         <!-- For large and Medium-sized Screen -->
         <div class="flex justify-between ">
             <div class="hidden sm:flex flex-row items-center space-x-6">
-                <a href={{ route('velo.index') }}>Bikes</a>
-                <a href={{ route('event.index') }}>Events</a>
-                <a href={{ route('location.index') }}>Location</a>
+                <a href="/OurBikes">Our Bikes</a>
+                <a href="/OurEvents">Our Events</a>
+                <a href="/YourLocations">Your Locations</a>
 
             </div>
             <div class=" flex space-x-3 items-center">

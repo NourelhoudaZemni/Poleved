@@ -13,8 +13,11 @@
     <div class="flex flex-no-wrap">
         <!-- Sidebar starts -->
         <div  style="min-height: 700px" class="absolute lg:relative w-64 h-screen shadow bg-gray-100 hidden lg:block">
-            <div class="h-16 w-full flex items-center px-8">
-                <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/light_with_header_and_icons-svg1.svg" alt="logo">
+            <div class=" flex space-x-3 items-center mt-2 mr-4">
+                <a href="/admin" class="pl-8 md:block hidden">
+                    <img src="../../../assets/logo.svg" class="w-[30px]" alt="logo">
+                </a>
+                <h1 class=" font-normal text-2xl leading-6 text-gray-800"><a href="/admin">MondoBikes</a></h1>
             </div>
             <ul class="py-6">
                 <li class="pl-6 cursor-pointer text-white text-sm leading-3 tracking-normal pb-4 pt-5 text-indigo-700 focus:text-indigo-700 focus:outline-none">
@@ -37,7 +40,16 @@
                             <path stroke="none" d="M0 0h24v24H0z" />
                             <path d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1" />
                         </svg>
-                        <a href="/velo" class="ml-2">Bike Management</a>
+                        <a href="/velo" class="ml-2">Bikes</a>
+                    </div>
+                </li>
+                <li class="pl-6 cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-4 mb-4 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-puzzle" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" />
+                            <path d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1" />
+                        </svg>
+                        <a href="/type" class="ml-2">Bike's Category</a>
                     </div>
                 </li>
                 <li class="pl-6 cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mb-4 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
@@ -47,7 +59,37 @@
                             <polyline points="8 16 10 10 16 8 14 14 8 16" />
                             <circle cx="12" cy="12" r="9" />
                         </svg>
-                        <a href="javascript:void(0)" class="ml-2">Event Management</a>
+                        <a href="/location" class="ml-2">Bookings</a>
+                    </div>
+                </li> <li class="pl-6 cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mb-4 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-compass" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" />
+                            <polyline points="8 16 10 10 16 8 14 14 8 16" />
+                            <circle cx="12" cy="12" r="9" />
+                        </svg>
+                        <a href="/event" class="ml-2">Events</a>
+                    </div>
+                </li>
+                </li>
+                <li class="pl-6 cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mb-4 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-compass" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" />
+                            <polyline points="8 16 10 10 16 8 14 14 8 16" />
+                            <circle cx="12" cy="12" r="9" />
+                        </svg>
+                        <a href="/contactus" class="ml-2">Complaints & Messages</a>
+                    </div>
+                </li>
+                <li class="pl-6 cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mb-4 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-compass" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" />
+                            <polyline points="8 16 10 10 16 8 14 14 8 16" />
+                            <circle cx="12" cy="12" r="9" />
+                        </svg>
+                        <a href="/sponsor" class="ml-2">Sponsor</a>
                     </div>
                 </li>
                 <li class="pl-6 cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
@@ -58,7 +100,7 @@
                             <polyline points="17 8 21 12 17 16" />
                             <line x1="14" y1="4" x2="10" y2="20" />
                         </svg>
-                        <a href="javascript:void(0)" class="ml-2">Balade Management</a>
+                        <a href="javascript:void(0)" class="ml-2">Balades</a>
                     </div>
                 </li>
             </ul>
@@ -179,57 +221,21 @@
                     </div>
                     <div class="w-1/2 hidden lg:flex">
                         <div class="w-full flex items-center pl-8 justify-end">
-                            <div class="h-full w-20 flex items-center justify-center border-r border-l">
-                                <button aria-label="open notifications" class="relative cursor-pointer text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-800">
-                                    <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/light_with_header_and_icons-svg5.svg" alt="notifications">
-                                    <div class="w-2 h-2 rounded-full bg-red-400 border border-white absolute inset-0 mt-1 mr-1 m-auto"></div>
-                                </button>
-                            </div>
                             <div  class="h-full w-20 flex items-center justify-center border-r mr-4 cursor-pointer text-gray-600 ">
                                 <button aria-label="open chats" class="focus:outline-none focus:ring-2 focus:ring-gray-800">
-                                    <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/light_with_header_and_icons-svg4.svg" alt="chats">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
                                 </button>
-                            </div>
-                            <div class="flex items-center relative cursor-pointer" onclick="dropdownHandler(this)">
-                                <div class="rounded-full">
-                                    <ul class="p-2 w-full border-r bg-white absolute rounded left-0 shadow mt-12 sm:mt-16 hidden">
-                                        <li class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center">
-                                            <div class="flex items-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                                    <circle cx="12" cy="7" r="4" />
-                                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                                                </svg>
-                                                <a href="javascript:void(0)" class="text-sm ml-2">My Profile</a>
-                                            </div>
-                                        </li>
-                                        <li class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mt-2">
-                                            <div class="flex items-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                                    <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
-                                                    <path d="M7 12h14l-3 -3m0 6l3 -3" />
-                                                </svg>
-                                                <a href="javascript:void(0)" class="text-sm ml-2">Sign out</a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="relative">
-                                        <img class="rounded-full h-10 w-10 object-cover" src="https://tuk-cdn.s3.amazonaws.com/assets/components/sidebar_layout/sl_1.png" alt="display avatar" role="img" />
-                                        <div class="w-2 h-2 rounded-full bg-green-400 border border-white absolute inset-0 mb-0 mr-0 m-auto"></div>
-                                    </div>
-                                </div>
-                                <p class="text-gray-800 text-sm mx-3">Jane Doe</p>
-                                <button aria-label="open profile options" class="cursor-pointer text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600">
-                                    <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/light_with_header_and_icons-svg6.svg" alt="down">
+                                <button aria-label="open notifications" class="ml-8 relative cursor-pointer text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-800">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                                    </svg>
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button aria-label="Main Menu" class="text-gray-600 mr-8 visible lg:hidden relative focus:outline-none focus:ring-2 focus:ring-gray-600 " onclick="sidebarHandler(true)" id="menu">
-                    <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/light_with_header_and_icons-svg7.svg" alt="toggler">
-                </button>
             </nav>
             <!-- Navigation ends -->
             <!-- Remove class [ h-64 ] when adding a card block -->
@@ -242,7 +248,6 @@
             </div>
         </div>
     </div>
-
 
 </div>
 </html>

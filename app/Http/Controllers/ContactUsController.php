@@ -15,8 +15,8 @@ class ContactUsController extends Controller
      */
     public function index()
     {
-        $contactuss = Contactus::all();
-        return view ('contactus.index')->with('contactus', $contactuss);
+        $contactuss = Contactus::latest()->paginate(5);
+        return view ('contactus.index')->with('contactus', $contactuss)->with('i', (request()->input('page', 1) - 1) * 5);;
     }
 
     /**

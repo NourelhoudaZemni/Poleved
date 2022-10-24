@@ -13,6 +13,17 @@ class VeloController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function OurBikes()
+    {
+        $data = Velo::latest()->paginate(5);
+
+        return view('OurBikes', compact('data'));
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $data = Velo::latest()->paginate(5);
@@ -102,11 +113,11 @@ class VeloController extends Controller
 
         $image = $request->hidden_image;
 
-        if($request->image != '')
-        {
-            $image = time() . '.' . request()->image->getClientOriginalExtension();
+        if($request->image != '') {
 
-            request()->image->move(public_path('images'), $image);
+            $file_name = time() . '.' . request()->image->getClientOriginalExtension();
+
+            request()->image->move(public_path('images'), $file_name);
         }
 
         $velo = Velo::find($request->hidden_id);

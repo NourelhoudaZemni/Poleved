@@ -14,6 +14,17 @@ class LocationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function indexF()
+    {
+        $data = Location::latest()->paginate(5);
+
+        return view('YourLocations', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $data = Location::latest()->paginate(5);
@@ -57,7 +68,7 @@ class LocationController extends Controller
 
         $location->save();
 
-        return redirect()->route('location.index')->with('success', 'Added successfully.');
+        return redirect()->route('YourLocations')->with('success', 'Added successfully.');
 
     }
 
@@ -114,7 +125,7 @@ class LocationController extends Controller
 
         $location->save();
 
-        return redirect()->route('location.index')->with('success', 'Data has been updated successfully');
+        return redirect()->route('YourLocations')->with('success', 'Data has been updated successfully');
 
     }
 
@@ -128,7 +139,7 @@ class LocationController extends Controller
     {
         $location->delete();
 
-        return redirect()->route('location.index')->with('success', 'Data deleted successfully');
+        return redirect()->route('YourLocations')->with('success', 'Data deleted successfully');
 
     }
 }
