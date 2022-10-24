@@ -13,6 +13,17 @@ class EventssController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function OurEvents()
+    {
+        $data = Eventss::latest()->paginate(5);
+
+        return view('OurEvents', compact('data'));
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $data = Eventss::latest()->paginate(5);

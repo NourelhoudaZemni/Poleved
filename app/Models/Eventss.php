@@ -17,6 +17,8 @@ class Eventss extends Model
         'address',
         'mobile',
         'sponsor',
-        'participants'
+        'participants',
+        'places',
+        'image'
     ];
 }

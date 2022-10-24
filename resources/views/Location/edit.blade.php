@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('components.layout')
 
 @section('content')
 
@@ -36,7 +36,7 @@
                            class="focus:ring-2 focus:ring-gray-400 w-1/2 focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "/>
                 </div>
                 <div class="flex items-center justify-between mt-9">
-                    <a href="{{ route('location.index') }}" aria-label="add user" role="button"
+                    <a href="/YourLocations" aria-label="add user" role="button"
                        class="focus:ring-2 focus:ring-offset-2 focus:ring-white focus:outline-none px-6 py-3 bg-white hover:bg-opacity-80 shadow rounded text-sm text-indigo-800">Cancel</a>
                     <input type="hidden" name="hidden_id" value="{{ $location->id }}"/>
                     <input type="submit" value="Save Changes" aria-label="add user" role="button"

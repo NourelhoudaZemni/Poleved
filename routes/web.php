@@ -26,6 +26,10 @@ Route::resource("/event", EventssController::class);
 Route::resource('/location', LocationController::class);
 Route::resource('/velo', VeloController::class);
 Route::resource('/type', TypeController::class);
+//FrontEnd
+Route::get('/OurBikes', [VeloController::class, 'OurBikes']);
+Route::get('/OurEvents', [EventssController::class, 'OurEvents'])->name('OurEvents');
+Route::get('/YourLocations', [LocationController::class, 'indexF'])->name('YourLocations');
 
 Route::resource('/contactus', ContactUsController::class);
 
