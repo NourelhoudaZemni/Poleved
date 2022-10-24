@@ -39,6 +39,17 @@ return view('admin.balade', compact('category'));
        }
 
        public function add_category(Request $request){
+        
+
+        
+        
+        $request->validate([
+          'category'=>'required',
+
+      ],
+          
+  ['category.required'=>'Entrez la categorie  s il vous plait',]);
+
         $data = new category;
         $data -> category_name =$request -> category;
         $data -> save();
@@ -50,6 +61,8 @@ return view('admin.balade', compact('category'));
       $data->delete();
       return view('admin.balade');
      }
+
+      
 
      public function delete_balade($id){
       $balade=balade::find($id);

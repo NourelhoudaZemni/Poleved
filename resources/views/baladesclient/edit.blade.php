@@ -61,7 +61,7 @@ display: flex;
     </div>
     @endif
             <div class="div_center">
-                    <h1 class="font_size"> Modifier une balade</h1>
+            <h1 class="font_size"> Modifier une balade</h1>
                     <form action="{{url('update_balade_confirm', $balade->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         
@@ -105,6 +105,8 @@ display: flex;
                      <div> 
                      <input type="submit" class="btn btn-primary"   value="Add Balade">
                      </div>
+                       
+
                        
     </form>
                 </div>

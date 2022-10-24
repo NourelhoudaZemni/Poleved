@@ -99,6 +99,13 @@ class BaladeClientController extends Controller
         Balade::destroy($id);
         return redirect('balade')->with('flash_message', 'balades deleted!');  
     }
+
+    public function All_Balades(){
+$balade=Balade::all();
+
+        return view('baladesclient.display', compact('balade'));
+
+    }
     public function update_balade_confirm(Request $request , $id)
     {$balade = balade::find($id);
      $balade->title= $request->title;
@@ -106,15 +113,9 @@ class BaladeClientController extends Controller
      $balade->price= $request->price;
      $balade->discount_price= $request->discount_price;
      $balade->category= $request->category;
+     $balade->image= $request->image;
      $balade->quantity= $request->quantity; 
     $balade->save();
     return redirect()->back();
-    }
-
-    public function All_Balades(){
-$balade=Balade::all();
-
-        return view('baladesclient.display', compact('balade'));
-
     }
 }

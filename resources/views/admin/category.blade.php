@@ -56,6 +56,12 @@
                     <form action="{{url('add_category')}}" method="POST">
                         @csrf
                         <input class="input_color" type="text" name="category" placeholder="Write category name">
+                        
+                        @error('category')
+                   <div class="alert alert-danger"> {{$message}} </div>
+                         @enderror
+                    </div>
+
                         <input type="submit" class="btn btn-primary" name="submit" value="Add category">
                     </form>
 
@@ -72,6 +78,10 @@
 <a onclick="return confirm('Are you to delete')" 
 class="btn btn-danger" 
 href="{{url('delete_category', $data->id)}}"> DELETE </a>
+</td>
+<td> 
+<a class="att" href="{{ url('update_category', $data->id)}}" title="Edit"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+               
 </td>
 </tr>
 @endforeach
