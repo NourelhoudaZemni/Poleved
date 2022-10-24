@@ -24,6 +24,7 @@ return view('admin.balade', compact('category'));
  }
 
      public function ajouter_balade(Request $request){
+      
      $balade = new balade;
      $balade -> title = $request -> title;
      $balade -> description = $request -> description;

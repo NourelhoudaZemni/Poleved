@@ -12,6 +12,9 @@
 .bouton{
     display: flex;
 }
+.image{
+    width: 5px;
+}
 .att{ 
     margin:auto;
     padding:30px;
@@ -52,10 +55,10 @@
         <th class="att" >nb de personne</th>
         <th class="att" >categorie</th>
         <th class="att" >prix</th>
-        <th  class="att">remise</th>
+        <th  class="att">remise</th> 
         <th  class="att">image</th>
         
-        <th    >Action</th>
+        <th>Action</th>
 
 
 
@@ -71,8 +74,12 @@
         <td  class="att">{{$item->category}}</td>
         <td  class="att">{{$item->price}}</td>
         <td  class="att">{{$item->discount_price}}</td>
+         
+        <td>     
+                <div class="image">
+                    <img src="{{ asset('images/' .  $item->image) }}" alt="Wooden Chair Previw" />
         
-        <td  class="att">{{$item->price}}</td> 
+            </div> </td>
                                         <td class="bouton">
                                             
                                             <a class="att" href="{{ url('/balade/' . $item->id) }}" title="View balade"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>

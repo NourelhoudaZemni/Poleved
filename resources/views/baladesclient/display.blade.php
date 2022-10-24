@@ -304,7 +304,11 @@ h1 {
     <div class="container">
         <div class="card">
             <div class="imgBx">
-                <img src="http://pngimg.com/uploads/running_shoes/running_shoes_PNG5782.png" alt="nike-air-shoe">
+  
+                <div class="image">
+                    <img src="{{ asset('images/' .  $balade->image) }}" alt="Wooden Chair Previw" />
+        
+            </div>  
             </div>
 
             <div class="contentBx">
@@ -340,6 +344,7 @@ h1 {
             <div class="flex">
            <div> Description : {{$balade->description}}</div>
            <div>  <h3>Place dispo : {{$balade->quantity}}</h3></div>
+           
 </div>
        
 		</div>
