@@ -92,6 +92,16 @@
                         <a href="/sponsor" class="ml-2">Sponsor</a>
                     </div>
                 </li>
+                <li class="pl-6 cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mb-4 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-compass" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" />
+                            <polyline points="8 16 10 10 16 8 14 14 8 16" />
+                            <circle cx="12" cy="12" r="9" />
+                        </svg>
+                        <a href="/categories" class="ml-2">Balade's Category</a>
+                    </div>
+                </li>
                 <li class="pl-6 cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
                     <div class="flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -100,7 +110,7 @@
                             <polyline points="17 8 21 12 17 16" />
                             <line x1="14" y1="4" x2="10" y2="20" />
                         </svg>
-                        <a href="javascript:void(0)" class="ml-2">Balades</a>
+                        <a href="/balades" class="ml-2">Balades</a>
                     </div>
                 </li>
             </ul>

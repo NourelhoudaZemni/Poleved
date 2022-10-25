@@ -83,19 +83,18 @@ class SponsorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $image = $request->hidden_image;
-
-        if($request->image != '')
-        {
-            $image = time() . '.' . request()->image->getClientOriginalExtension();
-
-            request()->image->move(public_path('images'), $image);
+        if ($request->hasFile('image')) {
+            $file_name = time() . '.' . request()->image->getClientOriginalExtension();
+            request()->image->move(public_path('images'), $file_name);
+        } else {
+            $file_name = $request->old_image;
         }
+
         $sponsor = Sponsor::findOrFail($id);
         $sponsor->name = $request->name;
         $sponsor->subscriptionType = $request->subscriptionType;
         $sponsor->description = $request->description;
-        $sponsor->image = $image;
+        $sponsor->image = $file_name;
         $sponsor->save();
         return redirect()->route('sponsor.index')->with('success', 'Sponsor updated successfully.');
     }

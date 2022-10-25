@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Eventss;
-use App\Models\Sponsor;
+use App\Models\balades;
+use App\Models\categories;
 use Illuminate\Http\Request;
 
-class EventssController extends Controller
+class BaladesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function OurEvents()
+    public function OurBalades()
     {
-        $data = Eventss::all();
+        $data = Balades::latest()->paginate(5);
 
-        return view('OurEvents', compact('data'));
+        return view('OurBalades', compact('data'));
     }
     /**
      * Display a listing of the resource.
@@ -26,8 +26,8 @@ class EventssController extends Controller
      */
     public function index()
     {
-        $data = Eventss::latest()->paginate(5);
-        return view('eventss.index', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $data = Balades::latest()->paginate(5);
+        return view('balades.index', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -37,8 +37,8 @@ class EventssController extends Controller
      */
     public function create()
     {
-        $sponsor = Sponsor::all();
-        return view('eventss.create',compact('sponsor'));
+        $categories = Categories::all();
+        return view('balades.create',compact('categories'));
     }
 
     /**
@@ -52,19 +52,17 @@ class EventssController extends Controller
         $file_name = time() . '.' . request()->image->getClientOriginalExtension();
         request()->image->move(public_path('images'), $file_name);
 
-        $eventss = new Eventss;
-        $eventss->name = $request->name;
-        $eventss->date = $request->date;
-        $eventss->details = $request->details;
-        $eventss->address = $request->address;
-        $eventss->places = $request->places;
-        $eventss->mobile = $request->mobile;
-        $eventss->sponsor = $request->sponsor;
-        $eventss->participants = $request->participants;
-        $eventss->image = $file_name;
-        $eventss->save();
-        return redirect()->route('event.index')->with('success', 'Eventss created successfully.');
+        $balades = new Balades;
+        $balades->title = $request->title;
+        $balades->description = $request->description;
+        $balades->category = $request->category;
+        $balades->quantity = $request->quantity;
+        $balades->price = $request->price;
+        $balades->discount_price = $request->discount_price;
+        $balades->image = $file_name;
+        $balades->save();
 
+        return redirect()->route('balades.index')->with('success','Balade created successfully.');
     }
 
     /**
@@ -75,7 +73,8 @@ class EventssController extends Controller
      */
     public function show($id)
     {
-        return view('eventss.show', ['event' => Eventss::findOrFail($id)]);
+        $balades = Balades::find($id);
+        return view('balades.show',compact('balades'));
     }
 
     /**
@@ -86,7 +85,9 @@ class EventssController extends Controller
      */
     public function edit($id)
     {
-        return view('eventss.edit', ['event' => Eventss::findOrFail($id)]);
+        $balades = Balades::find($id);
+        $categories = Categories::all();
+        return view('balades.edit',compact('balades','categories'));
     }
 
     /**
@@ -104,17 +105,18 @@ class EventssController extends Controller
         } else {
             $file_name = $request->old_image;
         }
-        $eventss = Eventss::findOrFail($id);
-        $eventss->name = $request->name;
-        $eventss->date = $request->date;
-        $eventss->details = $request->details;
-        $eventss->address = $request->address;
-        $eventss->mobile = $request->mobile;
-        $eventss->sponsor = $request->sponsor;
-        $eventss->participants = $request->participants;
-        $eventss->image = $file_name;
-        $eventss->save();
-        return redirect()->route('event.index')->with('success', 'Eventss updated successfully.');
+
+        $balades = Balades::find($id);
+        $balades->title = $request->title;
+        $balades->description = $request->description;
+        $balades->category = $request->category;
+        $balades->quantity = $request->quantity;
+        $balades->price = $request->price;
+        $balades->discount_price = $request->discount_price;
+        $balades->image = $file_name;
+        $balades->save();
+
+        return redirect()->route('balades.index')->with('success','Balade updated successfully');
     }
 
     /**
@@ -125,8 +127,7 @@ class EventssController extends Controller
      */
     public function destroy($id)
     {
-        $eventss = Eventss::findOrFail($id);
-        $eventss->delete();
-        return redirect()->route('event.index')->with('success', 'Eventss deleted successfully.');
+        Balades::find($id)->delete();
+        return redirect()->route('balades.index')->with('success','Balade deleted successfully');
     }
 }

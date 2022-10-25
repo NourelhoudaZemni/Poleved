@@ -20,6 +20,7 @@
             <div class="hidden sm:flex flex-row items-center space-x-6">
                 <a href="/OurBikes">Our Bikes</a>
                 <a href="/OurEvents">Our Events</a>
+                <a href="/OurBalades">Our Balades</a>
                 <a href="/YourLocations">Your Locations</a>
 
             </div>

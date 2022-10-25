@@ -111,13 +111,11 @@ class VeloController extends Controller
             'image'     =>  'image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000'
         ]);
 
-        $image = $request->hidden_image;
-
-        if($request->image != '') {
-
+        if ($request->hasFile('image')) {
             $file_name = time() . '.' . request()->image->getClientOriginalExtension();
-
             request()->image->move(public_path('images'), $file_name);
+        } else {
+            $file_name = $request->old_image;
         }
 
         $velo = Velo::find($request->hidden_id);
@@ -128,7 +126,7 @@ class VeloController extends Controller
 
         $velo->prix = $request->prix;
 
-        $velo->image = $image;
+        $velo->image = $file_name;
 
         $velo->save();
 

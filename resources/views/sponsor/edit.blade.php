@@ -9,7 +9,8 @@
                 @method("PATCH")
                 <div class="flex items-center justify-center">
                     <img src="{{ asset('images/' . $sponsor->image) }}" width="100" class="img-thumbnail"/>
-                    <input type="file" name="hidden_image" value="{{ $sponsor->image }}"/>
+                    <input value="{{$sponsor->image}}" type="hidden" name="old_image"/>
+                    <input type="file" name="image"/>
                 </div>
                 <br>
                 <div class="flex items-center space-x-9">
