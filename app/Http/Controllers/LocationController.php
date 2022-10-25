@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Location;
-use App\Http\Controllers\Controller;
 use App\Models\Velo;
 use Illuminate\Http\Request;
 

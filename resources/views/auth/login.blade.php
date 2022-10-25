@@ -1,12 +1,9 @@
 
 
+
 @extends('components.layout')
 
 @section('content')
-
-
-
-
 
 
 
@@ -20,61 +17,41 @@
         </div>
         <div
             class="bg-white shadow-lg rounded xl:w-1/3 lg:w-5/12 md:w-1/2 w-full lg:px-10 sm:px-6 sm:py-10 px-2 py-6">
-            <p tabindex="0" class="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800">Create your
+            <p tabindex="0" class="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800">Login to your
                 account</p>
-            <p tabindex="0" class="focus:outline-none text-sm mt-4 font-medium leading-none text-gray-500">Already
-                have an account? <a href="/login"
-                                    class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none text-gray-800 cursor-pointer">
-                    Login here</a></p>
+            <p tabindex="0" class="focus:outline-none text-sm mt-4 font-medium leading-none text-gray-500">Dont have
+                account? <a href="/register"
+                            class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none text-gray-800 cursor-pointer">
+                    Sign up here</a></p>
+            <button aria-label="Continue with google" role="button"
+                    class="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 p-3 border rounded-lg border-gray-700 flex items-center w-full mt-10 hover:bg-gray-100">
+                <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in_2-svg2.svg" alt="google">
+                <p class="text-base font-medium ml-4 text-gray-700">Connect with Google</p>
+            </button>
+            <button aria-label="Continue with github" role="button"
+                    class="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 p-3 border rounded-lg border-gray-700 flex items-center w-full mt-4 hover:bg-gray-100">
+                <img src="https://img.icons8.com/color/30/000000/facebook-new.png" />
+                <p class="text-base font-medium ml-4 text-gray-700">Connect with Facebook</p>
+            </button>
             <div class="w-full flex items-center justify-between py-5">
                 <hr class="w-full bg-gray-400" />
+                <p class="text-base font-medium leading-4 px-2.5 text-gray-500">OR</p>
                 <hr class="w-full bg-gray-400" />
-            </div>
-            <div>
-                <label for="Name" class="text-sm font-medium leading-none text-gray-800"> Full Name </label>
-                <input id="Name" aria-labelledby="Name" type="text"
-                       class="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
-                       placeholder="e.g: john chon " />
             </div>
             <div>
                 <label for="email" class="text-sm font-medium leading-none text-gray-800"> Email </label>
                 <input id="email" aria-labelledby="email" type="email"
                        class="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
-                       placeholder="e.g: john.chon@gmail.com " />
-            </div>
-            <div>
-                <label for="phone" class="text-sm font-medium leading-none text-gray-800"> Phone number </label>
-                <input id="phone" aria-labelledby="phone" type="text"
-                       class="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
-                       placeholder="e.g: +216 28 540 703 " />
+                       placeholder="e.g: john@gmail.com " />
             </div>
             <div class="mt-6 w-full">
                 <label for="myInput" class="text-sm font-medium leading-none text-gray-800"> Password </label>
                 <div class="relative flex items-center justify-center">
-                    <input placeholder="***************" id="myInput" type="password"
+                    <input id="myInput" type="password"
                            class="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
                     <div class="absolute right-0 mt-2 mr-3 cursor-pointer" onclick="showPassword()">
                         <div id="show">
                             <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in_2-svg5.svg" alt="eye">
-                        </div>
-                        <div id="hide" class="hidden">
-                            <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in_2-svg6.svg" alt="eye">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-6 w-full">
-                <label for="myInput" class="text-sm font-medium leading-none text-gray-800"> Confirm Password
-                </label>
-                <div class="relative flex items-center justify-center">
-                    <input placeholder="***************" id="myInput" type="password"
-                           class="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
-                    <div class="absolute right-0 mt-2 mr-3 cursor-pointer" onclick="showPassword()">
-                        <div id="show">
-                            <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in_2-svg5.svg" alt="eye">
-                        </div>
-                        <div id="hide" class="hidden">
-                            <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in_2-svg6.svg" alt="eye">
                         </div>
                     </div>
                 </div>
@@ -86,7 +63,7 @@
             </div>
         </div>
         <div class="xl:w-1/3 md:w-1/2 lg:ml-16 ml-8 md:mt-0 mt-6">
-            <a href="/" class="pl-8 md:block hidden">
+            <a href="/" class=" pl-8 md:block hidden">
                 <img src="../../assets/logo.svg" class="w-[200px]" alt="logo">
             </a>
             <div class="flex items-start mt-8">
@@ -94,8 +71,9 @@
                     <img class="w-24" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in_2-svg7.svg"
                          alt="quote">
                 </div>
-                <p class="sm:text-2xl text-xl leading-7 text-gray-600 pl-2.5">Don't miss your gold chance, it's time
-                    to discover new places, create your account and join us ❤️</p>
+                <p class="sm:text-2xl text-xl leading-7 text-gray-600 pl-2.5">Do you want to go on a adventure in
+                    the nature or discover new places, your are never late , join us 🔥
+                </p>
             </div>
             <div class="flex items-center pl-8 mt-10">
                 <img src="https://img.icons8.com/color/48/000000/facebook-new.png" />
@@ -104,9 +82,12 @@
             </div>
         </div>
     </div>
+
 </div>
 
 
 
 </body>
+
+
 @endsection('content')
