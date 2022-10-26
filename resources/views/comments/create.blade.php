@@ -1,6 +1,19 @@
 @extends('components.layout')
 
 @section('content')
+    @if($errors->any())
+
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+
+                    <li>{{ $error }}</li>
+
+                @endforeach
+            </ul>
+        </div>
+
+    @endif
     <div class="flex justify-center w-full sm:px-6">
         <div class="px-4 md:px-10 pt-6 md:pt-12 md:pb-4 pb-7">
             <p class="text-center text-2xl font-semibold mb-10">Leave a Comment</p>

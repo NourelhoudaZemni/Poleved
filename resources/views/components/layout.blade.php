@@ -28,7 +28,8 @@
                 <a href="/OurBikes">Our Bikes</a>
                 <a href="/OurEvents">Our Events</a>
                 <a href="/OurBalades">Our Balades</a>
-                <a href="/YourLocations">Your Locations</a>
+                <a href="/OurPosts">Our Blogs</a>
+                <a href="/YourLocations" class="text-indigo-700">Your Locations</a>
             </div>
             <div class=" flex space-x-3 items-center">
                 <a href="/" class="pl-8 md:block hidden">

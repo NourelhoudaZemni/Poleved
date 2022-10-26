@@ -47,6 +47,11 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name'          =>  'required',
+            'email'          =>  'required',
+            'contenu'          =>  'required',
+        ]);
         $c = new Comments();
         $c->post_id = $request->id;
         $c->name = $request->name;

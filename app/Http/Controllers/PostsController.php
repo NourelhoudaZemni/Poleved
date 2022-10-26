@@ -64,6 +64,13 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title'          =>  'required',
+            'date'          =>  'required',
+            'description'          =>  'required',
+            'contenu'          =>  'required',
+            'author'          =>  'required'
+        ]);
         $posts = new Posts;
         $posts->title = $request->title;
         $posts->date = $request->date;
@@ -106,6 +113,13 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'title'          =>  'required',
+            'date'          =>  'required',
+            'description'          =>  'required',
+            'contenu'          =>  'required',
+            'author'          =>  'required'
+        ]);
         $posts = Posts::find($id);
         $posts->title = $request->title;
         $posts->date = $request->date;
