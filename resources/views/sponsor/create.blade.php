@@ -8,15 +8,27 @@
                 <div class="flex items-center justify-center">
                     <input type="file" name="image"/>
                 </div>
+                @if ($errors->has('image'))
+                    <span class="text-red-600">{{ $errors->first('image') }}</span>
+                @endif
                 <div class="flex items-center space-x-9">
                     <input type="text" name="name" placeholder="Name"
                            class="focus:ring-2 focus:ring-gray-400 w-1/2 focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "/>
+                    @if ($errors->has('name'))
+                        <span class="text-red-600">{{ $errors->first('name') }}</span>
+                    @endif
                     <input type="text" name="subscriptionType" placeholder="Subscription Type" min="0"
                            class="focus:ring-2 focus:ring-gray-400 w-1/2 focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "/>
+                    @if ($errors->has('subscriptionType'))
+                        <span class="text-red-600">{{ $errors->first('subscriptionType') }}</span>
+                    @endif
                 </div>
                 <div class="flex items-center space-x-9">
                     <input type="text" name="description" placeholder="Description"
                               class="focus:ring-2 focus:ring-gray-400 w-full focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "></input>
+                    @if ($errors->has('description'))
+                        <span class="text-red-600">{{ $errors->first('description') }}</span>
+                    @endif
                 </div>
                 <div class="flex items-center justify-between mt-9">
                     <a href="{{ route('sponsor.index') }}" aria-label="add user" role="button"

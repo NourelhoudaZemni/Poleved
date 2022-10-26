@@ -20,9 +20,10 @@
             <p tabindex="0" class="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800">Login to your
                 account</p>
             <p tabindex="0" class="focus:outline-none text-sm mt-4 font-medium leading-none text-gray-500">Dont have
-                account? <a href="/signup"
+                account? <a href="{{route('register')}}"
                             class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none text-gray-800 cursor-pointer">
                     Sign up here</a></p>
+
             <button aria-label="Continue with google" role="button"
                     class="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 p-3 border rounded-lg border-gray-700 flex items-center w-full mt-10 hover:bg-gray-100">
                 <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in_2-svg2.svg" alt="google">
@@ -38,29 +39,54 @@
                 <p class="text-base font-medium leading-4 px-2.5 text-gray-500">OR</p>
                 <hr class="w-full bg-gray-400" />
             </div>
-            <div>
-                <label for="email" class="text-sm font-medium leading-none text-gray-800"> Email </label>
-                <input id="email" aria-labelledby="email" type="email"
-                       class="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
-                       placeholder="e.g: john@gmail.com " />
-            </div>
-            <div class="mt-6 w-full">
-                <label for="myInput" class="text-sm font-medium leading-none text-gray-800"> Password </label>
-                <div class="relative flex items-center justify-center">
-                    <input id="myInput" type="password"
-                           class="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
-                    <div class="absolute right-0 mt-2 mr-3 cursor-pointer" onclick="showPassword()">
-                        <div id="show">
-                            <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in_2-svg5.svg" alt="eye">
+
+
+            <form method="post" action="{{route('postlogin')}}">
+                @csrf
+                @if(\Session::has('message'))
+                    <p class="text-indigo-800 mt-2 mb-2">
+                        {{\Session::get('message')}}
+                    </p>
+                @endif
+                <div>
+                    <label for="email" class="text-sm font-medium leading-none text-gray-800"> Email </label>
+                    <input id="email" aria-labelledby="email" type="email" name="email"
+                           class="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
+                           placeholder="e.g: john@gmail.com " />
+                    @if ($errors->has('email'))
+                        <span class="text-red-600">{{ $errors->first('email') }}</span>
+                    @endif
+
+                </div>
+                <div class="mt-6 w-full">
+                    <label for="password" class="text-sm font-medium leading-none text-gray-800"> Password </label>
+                    <div class="relative flex items-center justify-center">
+                        <input id="password" type="password" name="password"
+                               class="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
+
+                        <div class="absolute right-0 mt-2 mr-3 cursor-pointer" onclick="showPassword()">
+                            <div id="show">
+                                <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in_2-svg5.svg" alt="eye">
+                            </div>
                         </div>
                     </div>
+                    @if ($errors->has('password'))
+                        <span class="text-red-600">{{ $errors->first('password') }}</span>
+                    @endif
                 </div>
-            </div>
-            <div class="mt-8">
-                <button role="button"
-                        class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full">Create
-                    my account</button>
-            </div>
+                <div class="mt-8">
+                    <button role="button"
+                            type="submit"
+                            class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full">Create
+                        my account
+                    </button>
+                </div>
+            </form>
+
+
+
+
+
         </div>
         <div class="xl:w-1/3 md:w-1/2 lg:ml-16 ml-8 md:mt-0 mt-6">
             <a href="/" class=" pl-8 md:block hidden">

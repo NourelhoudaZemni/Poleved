@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\categories;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class CategoriesController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $data = Categories::latest()->paginate(5);
-        return view('categories.index', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $data = User::latest()->paginate(5);
+        return view('users.index', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -25,7 +25,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        //
     }
 
     /**
@@ -36,14 +36,7 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name'          =>  'required'
-        ]);
-        $categories = new Categories;
-        $categories->category_name = $request->category_name;
-        $categories->save();
-
-        return redirect()->route('categories.index')->with('success', 'Category created successfully.');
+        //
     }
 
     /**
@@ -54,8 +47,7 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        $categories = Categories::find($id);
-        return view('categories.show', compact('categories'));
+        //
     }
 
     /**
@@ -66,8 +58,7 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        $categories = Categories::find($id);
-        return view('categories.edit', compact('categories'));
+        return view('profile', ['ussserr' => User::findOrFail($id)]);
     }
 
     /**
@@ -79,11 +70,24 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $categories = Categories::find($id);
-        $categories->category_name = $request->category_name;
-        $categories->save();
-
-        return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
+        $user = User::findOrFail($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
+        return redirect()->route('profile', ['id' => $id]);
+    }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateRole($id)
+    {
+        $user = User::findOrFail($id);
+        $user->role = !$user->role;
+        $user->save();
+        return redirect()->route('users.index');
     }
 
     /**
@@ -94,7 +98,8 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        Categories::find($id)->delete();
-        return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('users.index')->with('success', 'User deleted successfully.');
     }
 }
