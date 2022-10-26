@@ -51,7 +51,7 @@
                     @endif
                 </div>
                 <div class="flex items-center space-x-9">
-                    <input type="text" name="participants" placeholder="Participants" min="0"
+                    <input type="text" value="No participants" name="participants" placeholder="Participants" min="0"
                            class="focus:ring-2 focus:ring-gray-400 w-full focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "/>
                     @if ($errors->has('participants'))
                         <span class="text-red-600">{{ $errors->first('participants') }}</span>

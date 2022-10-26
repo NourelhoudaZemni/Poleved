@@ -46,18 +46,28 @@ Route::resource('users', UsersController::class);
 //Client
 Route::get('/OurBikes', [VeloController::class, 'OurBikes']);
 Route::get('/OurEvents', [EventssController::class, 'OurEvents'])->name('OurEvents');
-Route::get('/YourLocations', [LocationController::class, 'indexF'])->name('YourLocations');
 Route::get('/OurBalades', [BaladesController::class, 'OurBalades'])->name('OurBalades');
 Route::get('/OurPosts', [PostsController::class, 'OurPosts'])->name('OurPosts');
 Route::get('/readpost/{id}', [PostsController::class, 'readpost'])->name('readpost');
 Route::get('/comment/{id}', [CommentsController::class, 'createComment'])->name('comment');
 
 Route::view('/','welcome');
-Route::view('/admin', 'admin.admin');
-Route::view('/profile', 'profile');
+
 Route::view('/contact', 'contact');
 Route::view('/notFound404', 'notFound404');
 
+// Route required the authentification
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::view('/admin', 'admin.admin');
+    Route::view('/profile', 'profile');
+
+    Route::get('/YourLocations', [LocationController::class, 'indexF'])->name('YourLocations');
+
+    Route::put('updateRole/{id}',[UsersController::class, 'updateRole'])->name('updateRole');
+    Route::put('addParticipant/{id}',[EventssController::class, 'addParticipant'])->name('addParticipant');
+    Route::put('deleteParticipant/{id}',[EventssController::class, 'deleteParticipant'])->name('deleteParticipant');
+});
 
 Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
 
@@ -71,4 +81,4 @@ Route::get('signout', [CustomAuthController::class, 'logout'])->name('signout');
 //update role route
 
 
-Route::put('updateRole/{id}',[UsersController::class, 'updateRole'])->name('updateRole');
+

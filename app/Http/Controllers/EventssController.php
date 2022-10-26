@@ -107,6 +107,45 @@ class EventssController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function addParticipant(Request $request, $id)
+    {
+        $request->validate([
+            'participants'          =>  'required',
+        ]);
+        $eventss = Eventss::find($id);
+        // verify if the user is already registered in the participants string
+        if (strpos($eventss->participants, $request->participants) !== false) {
+            return redirect()->route('OurEvents')->with('error', 'You are already registered in this event.');
+        }
+        $eventss->participants = $eventss->participants . ' ' . $request->participants;
+        $eventss->save();
+        return redirect()->route('OurEvents')->with('success', 'Participants added successfully.');
+    }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteParticipant(Request $request, $id)
+    {
+        $request->validate([
+            'participants'          =>  'required',
+        ]);
+        $eventss = Eventss::find($id);
+        // search for the user in the participants string and delete it
+        $eventss->participants = str_replace($request->participants, '', $eventss->participants);
+        $eventss->save();
+        return redirect()->route('OurEvents')->with('success', 'Participants added successfully.');
+    }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, $id)
     {
         $request->validate([

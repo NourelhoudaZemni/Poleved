@@ -37,7 +37,7 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'          =>  'required'
+            'category_name'          =>  'required'
         ]);
         $categories = new Categories;
         $categories->category_name = $request->category_name;

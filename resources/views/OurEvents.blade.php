@@ -59,7 +59,36 @@
                                         {{--                            <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/full_width_3_section_card-svg3.svg" alt="yellow star"/>--}}
                                         {{--                            <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/full_width_3_section_card-svg4.svg" alt="grey star"/>--}}
                                         {{--                        </div>--}}
-                                        <button class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 ml-0 md:ml-5 bg-indigo-700 dark:bg-indigo-600 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-3 md:px-6 py-2 text-sm">Participate</button>
+                                        <form method="post" action="{{ route('addParticipant', $row->id) }}" enctype="multipart/form-data">
+                                            <div>
+                                                <ul>
+                                                    @foreach($errors->all() as $error)
+
+                                                        <li class="text-red-600">{{ $error }}</li>
+
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @csrf
+                                        @method('PUT')
+                                        <input name="participants" type="hidden" value="{{\Illuminate\Support\Facades\Auth::user()->name}}">
+                                        <button type="submit" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 ml-0 md:ml-5 bg-indigo-700 dark:bg-indigo-600 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-3 md:px-6 py-2 text-sm">Participate</button>
+                                    </form>
+                                        <form class="mt-4" method="post" action="{{ route('deleteParticipant', $row->id) }}" enctype="multipart/form-data">
+                                            <div>
+                                                <ul>
+                                                    @foreach($errors->all() as $error)
+
+                                                        <li class="text-red-600">{{ $error }}</li>
+
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @csrf
+                                        @method('PUT')
+                                        <input name="participants" type="hidden" value="{{\Illuminate\Support\Facades\Auth::user()->name}}">
+                                        <button type="submit" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 ml-0 md:ml-5 bg-indigo-700 dark:bg-indigo-600 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-3 md:px-6 py-2 text-sm">Cancel</button>
+                                    </form>
                                     </div>
                                 </div>
                                 <!-- Card code block end -->
