@@ -8,6 +8,7 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\VeloController;
+use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*
@@ -31,6 +32,7 @@ Route::resource('velo', VeloController::class);
 Route::resource('type', TypeController::class);
 Route::resource('balades', BaladesController::class);
 Route::resource('categories', CategoriesController::class);
+Route::resource('posts', PostsController::class);
 
 //Authentification routes
 
@@ -41,6 +43,7 @@ Route::get('/OurBikes', [VeloController::class, 'OurBikes']);
 Route::get('/OurEvents', [EventssController::class, 'OurEvents'])->name('OurEvents');
 Route::get('/YourLocations', [LocationController::class, 'indexF'])->name('YourLocations');
 Route::get('/OurBalades', [BaladesController::class, 'OurBalades'])->name('OurBalades');
+Route::get('/OurPosts', [PostsController::class, 'OurPosts'])->name('OurPosts');
 
 Route::view('/','welcome');
 Route::view('/admin', 'admin.admin');
