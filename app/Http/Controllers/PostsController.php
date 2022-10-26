@@ -19,6 +19,20 @@ class PostsController extends Controller
 
         return view('OurPosts', compact('data'));
     }
+
+    /**
+     * Display a specific resource
+     *
+     * @param  int  $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function readpost($id)
+    {
+        $post = Posts::find($id);
+        $comments = Comments::where('post_id', $id)->get();
+
+        return view('readpost', compact('post', 'comments'));
+    }
     /**
      * Display a listing of the resource.
      *

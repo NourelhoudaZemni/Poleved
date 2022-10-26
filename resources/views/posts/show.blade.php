@@ -26,7 +26,7 @@
             </div>
 
             @if(!empty($comments))
-                <div class="break-all ">
+                <div class="break-all">
                     @foreach($comments as $c)
                         <div class=" my-2 p-2 border-dark border border-cyan-500 ">
                             <p class="font-medium text-base leading-4 text-gray-600"> {{ $c->contenu }}</p>

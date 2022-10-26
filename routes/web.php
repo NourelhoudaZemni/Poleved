@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BaladesController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\EventssController;
@@ -35,6 +36,7 @@ Route::resource('type', TypeController::class);
 Route::resource('balades', BaladesController::class);
 Route::resource('categories', CategoriesController::class);
 Route::resource('posts', PostsController::class);
+Route::resource('comments', CommentsController::class);
 Route::resource('users', UsersController::class);
 
 //Authentification routes
@@ -47,6 +49,8 @@ Route::get('/OurEvents', [EventssController::class, 'OurEvents'])->name('OurEven
 Route::get('/YourLocations', [LocationController::class, 'indexF'])->name('YourLocations');
 Route::get('/OurBalades', [BaladesController::class, 'OurBalades'])->name('OurBalades');
 Route::get('/OurPosts', [PostsController::class, 'OurPosts'])->name('OurPosts');
+Route::get('/readpost/{id}', [PostsController::class, 'readpost'])->name('readpost');
+Route::get('/comment/{id}', [CommentsController::class, 'createComment'])->name('comment');
 
 Route::view('/','welcome');
 Route::view('/admin', 'admin.admin');

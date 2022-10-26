@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comments;
+use App\Models\Posts;
 use Illuminate\Http\Request;
 
 class CommentsController extends Controller
@@ -20,7 +21,7 @@ class CommentsController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
@@ -28,14 +29,33 @@ class CommentsController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     * @param  int  $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function createComment($id)
+    {
+        return view('comments.create', compact('id'));
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
+//     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function store(Request $request)
     {
-        //
+        $c = new Comments();
+        $c->post_id = $request->id;
+        $c->name = $request->name;
+        $c->email = $request->email;
+        $c->contenu = $request->contenu;
+        $c->score = $request->score;
+        $c->save();
+        return redirect()->route('readpost/{id}',['id' => $request->id])->with('success', 'Posts created successfully.');
+//        return view('readpost',);
     }
 
     /**
