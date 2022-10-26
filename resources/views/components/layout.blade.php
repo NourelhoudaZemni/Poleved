@@ -17,11 +17,11 @@
     <nav id="navbar" class="2xl:container 2xl:mx-auto sm:py-6 sm:px-7 py-5 px-4">
         <!-- For large and Medium-sized Screen -->
         <div class="flex justify-between ">
-{{--            @if(Auth::user()->role == 1)--}}
+			@if(Auth::user()->role == 1)
                 <div class="hidden sm:flex flex-row items-center space-x-12">
                     <a href="/admin" class="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 hover:bg-indigo-600 duration-150 justify-center items-center">Admin</a>
                 </div>
-{{--            @endif--}}
+			@endif
             <div class="hidden sm:flex flex-row items-center space-x-6">
                 <a href="/OurBikes">Our Bikes</a>
                 <a href="/OurEvents">Our Events</a>
