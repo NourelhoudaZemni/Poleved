@@ -17,12 +17,16 @@
     <nav id="navbar" class="2xl:container 2xl:mx-auto sm:py-6 sm:px-7 py-5 px-4">
         <!-- For large and Medium-sized Screen -->
         <div class="flex justify-between ">
+            @if(Auth::user()->role == 1)
+                <div class="hidden sm:flex flex-row items-center space-x-12">
+                    <a href="/admin" class="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 hover:bg-indigo-600 duration-150 justify-center items-center">Admin</a>
+                </div>
+            @endif
             <div class="hidden sm:flex flex-row items-center space-x-6">
                 <a href="/OurBikes">Our Bikes</a>
                 <a href="/OurEvents">Our Events</a>
                 <a href="/OurBalades">Our Balades</a>
                 <a href="/YourLocations">Your Locations</a>
-
             </div>
             <div class=" flex space-x-3 items-center">
                 <a href="/" class="pl-8 md:block hidden">
@@ -30,15 +34,22 @@
                 </a>
                 <h1 class=" font-normal text-2xl leading-6 text-gray-800"><a href="/">MondoBikes</a></h1>
             </div>
+            @if (Auth::check())
+                <div class="hidden sm:flex flex-row items-center space-x-6">
+                    <a  href="/profile" class="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-indigo-700 bg-white border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center">Profile</a>
+                    <a href="{{route('signout')}}" class="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 hover:bg-indigo-600 duration-150 justify-center items-center">Logout</a>
+                </div>
+            @else
             <div class="hidden sm:flex flex-row space-x-4">
                 <button
                     class="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-indigo-700 bg-white border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center"><a
-                        href="/signup">Sign Up</a></button>
+                        href="{{route('register')}}">Register</a>
+                </button>
                 <button
                     class="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 hover:bg-indigo-600 duration-150 justify-center items-center"><a
-                        href="/login" class="text-white">Sign In</a></button>
+                        href="{{route('login')}}" class="text-white">Log In</a></button>
             </div>
-
+            @endif
             <!-- Burger Icon -->
             <div id="bgIcon" onclick="toggleMenu()"
                  class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800  flex justify-center items-center sm:hidden cursor-pointer">

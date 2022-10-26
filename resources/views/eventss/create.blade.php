@@ -7,30 +7,55 @@
                 @csrf
                 <div class="flex items-center justify-center">
                     <input type="file" name="image"/>
+                    @if ($errors->has('image'))
+                        <span class="text-red-600">{{ $errors->first('image') }}</span>
+                    @endif
                 </div>
+
                 <div class="flex items-center space-x-9">
                     <input type="text" name="name" placeholder="Name"
                            class="focus:ring-2 focus:ring-gray-400 w-1/2 focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "/>
+                    @if ($errors->has('name'))
+                        <span class="text-red-600">{{ $errors->first('name') }}</span>
+                    @endif
                     <input type="date" name="date" placeholder="Date" min="0"
                            class="focus:ring-2 focus:ring-gray-400 w-1/2 focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "/>
+                    @if ($errors->has('date'))
+                        <span class="text-red-600">{{ $errors->first('date') }}</span>
+                    @endif
                 </div>
                 <div class="flex items-center space-x-9">
                     <textarea type="text" name="details" placeholder="Details"
                            class="focus:ring-2 focus:ring-gray-400 w-full focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "></textarea>
+                    @if ($errors->has('details'))
+                        <span class="text-red-600">{{ $errors->first('details') }}</span>
+                    @endif
                 </div>
                 <div class="flex items-center space-x-9">
                     <input type="text" name="mobile" placeholder="Contact Number"
                            class="focus:ring-2 focus:ring-gray-400 w-1/2 focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "/>
+                    @if ($errors->has('mobile'))
+                        <span class="text-red-600">{{ $errors->first('mobile') }}</span>
+                    @endif
                     <input type="number" name="places" placeholder="Places Number"
                            class="focus:ring-2 focus:ring-gray-400 w-1/2 focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "/>
+                    @if ($errors->has('places'))
+                        <span class="text-red-600">{{ $errors->first('places') }}</span>
+                    @endif
                 </div>
                 <div class="flex items-center space-x-9">
                     <textarea type="text" name="address" placeholder="Address"
                               class="focus:ring-2 focus:ring-gray-400 w-full focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "></textarea>
+                    @if ($errors->has('address'))
+                        <span class="text-red-600">{{ $errors->first('address') }}</span>
+                    @endif
                 </div>
                 <div class="flex items-center space-x-9">
                     <input type="text" name="participants" placeholder="Participants" min="0"
                            class="focus:ring-2 focus:ring-gray-400 w-full focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "/>
+                    @if ($errors->has('participants'))
+                        <span class="text-red-600">{{ $errors->first('participants') }}</span>
+                    @endif
                 </div>
                 <div class="flex items-center space-x-9 mt-8">
                     <div tabindex="0"
@@ -43,6 +68,9 @@
                             @endforeach
                         </select>
                     </div>
+                    @if ($errors->has('sponsor'))
+                        <span class="text-red-600">{{ $errors->first('sponsor') }}</span>
+                    @endif
                 </div>
                 <div class="flex items-center justify-between mt-9">
                     <a href="{{ route('event.index') }}" aria-label="add user" role="button"

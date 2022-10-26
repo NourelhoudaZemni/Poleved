@@ -31,7 +31,7 @@
                                 <rect x="14" y="14" width="6" height="6" rx="1" />
                             </svg>
                         </div>
-                        <a href="javascript:void(0)" class="ml-2">Dashboard</a>
+                        <a href="/users" class="ml-2">Dashboard</a>
                     </div>
                 </li>
                 <li class="pl-6 cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-4 mb-4 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
@@ -230,18 +230,13 @@
                         </div>
                     </div>
                     <div class="w-1/2 hidden lg:flex">
-                        <div class="w-full flex items-center pl-8 justify-end">
+                        <div class="w-full flex items-center justify-center">
                             <div  class="h-full w-20 flex items-center justify-center border-r mr-4 cursor-pointer text-gray-600 ">
-                                <button aria-label="open chats" class="focus:outline-none focus:ring-2 focus:ring-gray-800">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    </svg>
-                                </button>
-                                <button aria-label="open notifications" class="ml-8 relative cursor-pointer text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-800">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
-                                    </svg>
-                                </button>
+                                <div class="hidden sm:flex flex-row items-center space-x-6">
+                                    <a  href="/" class="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-indigo-700 bg-white border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center">MonoBike</a>
+                                    <a  href="/profile" class="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-indigo-700 bg-white border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center">Profile</a>
+                                    <a href="{{route('signout')}}" class="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 hover:bg-indigo-600 duration-150 justify-center items-center">Logout</a>
+                                </div>
                             </div>
                         </div>
                     </div>

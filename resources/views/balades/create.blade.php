@@ -2,19 +2,19 @@
 
 @section('content')
 
-    @if($errors->any())
+{{--    @if($errors->any())--}}
 
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
+{{--        <div class="alert alert-danger">--}}
+{{--            <ul>--}}
+{{--                @foreach($errors->all() as $error)--}}
 
-                    <li>{{ $error }}</li>
+{{--                    <li>{{ $error }}</li>--}}
 
-                @endforeach
-            </ul>
-        </div>
+{{--                @endforeach--}}
+{{--            </ul>--}}
+{{--        </div>--}}
 
-    @endif
+{{--    @endif--}}
 
 
 
@@ -27,22 +27,40 @@
                 <div class="flex items-center justify-center">
                     <input type="file" name="image"/>
                 </div>
+                @if ($errors->has('image'))
+                    <span class="text-red-600">{{ $errors->first('image') }}</span>
+                @endif
                 <br>
                 <div class="flex items-center space-x-9">
                     <input type="text" name="title" placeholder="Title"
                            class="focus:ring-2 focus:ring-gray-400 w-1/2 focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "/>
+                    @if ($errors->has('title'))
+                        <span class="text-red-600">{{ $errors->first('title') }}</span>
+                    @endif
                     <input type="number" name="quantity" placeholder="Quantity" min="0"
                            class="focus:ring-2 focus:ring-gray-400 w-1/2 focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "/>
+                    @if ($errors->has('quantity'))
+                        <span class="text-red-600">{{ $errors->first('quantity') }}</span>
+                    @endif
                 </div>
                 <div class="flex items-center space-x-9">
                     <input type="number" name="price" placeholder="Price"
                            class="focus:ring-2 focus:ring-gray-400 w-1/2 focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "/>
+                    @if ($errors->has('price'))
+                        <span class="text-red-600">{{ $errors->first('price') }}</span>
+                    @endif
                     <input value="0" type="number" name="discount_price" placeholder="Discount" min="0"
                            class="focus:ring-2 focus:ring-gray-400 w-1/2 focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "/>% Off
+                    @if ($errors->has('discount_price'))
+                        <span class="text-red-600">{{ $errors->first('discount_price') }}</span>
+                    @endif
                 </div>
                 <div class="flex items-center space-x-9">
                     <input type="text" name="description" placeholder="Description"
                            class="focus:ring-2 focus:ring-gray-400 w-full focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white  border rounded border-gray-200  "/>
+                    @if ($errors->has('description'))
+                        <span class="text-red-600">{{ $errors->first('description') }}</span>
+                    @endif
                 </div>
                 <div class="flex items-center space-x-9 mt-8">
                     <div tabindex="0"
@@ -55,6 +73,9 @@
                             @endforeach
                         </select>
                     </div>
+                    @if ($errors->has('category'))
+                        <span class="text-red-600">{{ $errors->first('category') }}</span>
+                    @endif
                 </div>
                 <div class="flex items-center justify-between mt-9">
                     <a href="{{ route('balades.index') }}" aria-label="add user" role="button"

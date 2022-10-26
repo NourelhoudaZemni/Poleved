@@ -3,10 +3,12 @@
 use App\Http\Controllers\BaladesController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\EventssController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\TypeController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\VeloController;
 use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Auth;
@@ -24,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 
 //Auth
 
-Route::resource('/contactus', ContactUsController::class);
+Route::resource('contactus', ContactUsController::class);
 Route::resource("sponsor", SponsorController::class);
 Route::resource("event", EventssController::class);
 Route::resource('location', LocationController::class);
@@ -33,6 +35,7 @@ Route::resource('type', TypeController::class);
 Route::resource('balades', BaladesController::class);
 Route::resource('categories', CategoriesController::class);
 Route::resource('posts', PostsController::class);
+Route::resource('users', UsersController::class);
 
 //Authentification routes
 
@@ -47,15 +50,21 @@ Route::get('/OurPosts', [PostsController::class, 'OurPosts'])->name('OurPosts');
 
 Route::view('/','welcome');
 Route::view('/admin', 'admin.admin');
-//Route::view('/login', 'login');
-//Route::view('/signup', 'signup');
 Route::view('/profile', 'profile');
 Route::view('/contact', 'contact');
 Route::view('/notFound404', 'notFound404');
 
 
+Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
+
+Route::get('login',[CustomAuthController::class, 'index'])->name('login');
+Route::post('postlogin',[CustomAuthController::class, 'login'])->name('postlogin');
+
+Route::get('register', [CustomAuthController::class, 'signup'])->name('register');
+Route::post('postsignup', [CustomAuthController::class, 'signupsave'])->name('postsignup');
+Route::get('signout', [CustomAuthController::class, 'logout'])->name('signout');
+
+//update role route
 
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::put('updateRole/{id}',[UsersController::class, 'updateRole'])->name('updateRole');
