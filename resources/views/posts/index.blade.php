@@ -19,7 +19,7 @@
                 <div>
                     <button
                         class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 inline-flex sm:ml-3 mt-4 sm:mt-0 items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded">
-                        <a href="{{ route('post.create') }}" class="text-sm font-medium leading-none text-white">Add New Post</a>
+                        <a href="{{ route('posts.create') }}" class="text-sm font-medium leading-none text-white">Add New Post</a>
                     </button>
                 </div>
             </div>
@@ -40,32 +40,32 @@
                     @foreach($data as $row)
                         <tr tabindex="0"
                             class="focus:outline-none h-20 text-sm leading-none text-gray-800   bg-white   hover:bg-gray-100   border-b border-t border-gray-100 ">
-                            <td class="pl-12">
+                            <td class="pl-4">
                                 <p class="font-medium">{{ $row->title }}</p>
                             </td>
-                            <td class="pl-20">
+                            <td class="pl-12">
                                 <p class="font-medium">{{ $row->date }}</p>
                             </td>
-                            <td class="pl-20">
+                            <td class="pl-12">
                                 <p class="font-medium">{{ $row->description }}</p>
                             </td>
-                            <td class="pl-20">
+                            <td class="pl-12">
+                                <p class="font-medium">{{ \Illuminate\Support\Str::limit($row->contenu,10,$end='...') }}</p>
+                            </td>
+                            <td class="pl-12">
                                 <p class="font-medium">{{ $row->author }}</p>
                             </td>
-                            <td class="pl-20">
-                                <p class="font-medium">{{ $row->contenu }}</p>
-                            </td>
                             <td class="px-7 2xl:px-0">
-                                <form class="flex" method="post" action="{{ route('post.destroy', $row->id) }}">
+                                <form class="flex" method="post" action="{{ route('posts.destroy', $row->id) }}">
                                     @csrf
                                     @method('DELETE')
                                     <div tabindex="0"
                                          class="text-center focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
-                                        <a href="{{ route('post.show', $row->id) }}">View</a>
+                                        <a href="{{ route('posts.show', $row->id) }}">View</a>
                                     </div>
                                     <div tabindex="0"
                                          class="text-center focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
-                                        <a href="{{ route('post.edit', $row->id) }}">Edit</a>
+                                        <a href="{{ route('posts.edit', $row->id) }}">Edit</a>
                                     </div>
                                     <div tabindex="0"
                                          class="text-center focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
@@ -77,7 +77,7 @@
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="5" class="text-center">No Post Found</td>
+                        <td colspan="5" class="text-center">No Posts Found</td>
                     </tr>
                 @endif
                 </tbody>

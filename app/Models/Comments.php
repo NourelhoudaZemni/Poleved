@@ -14,6 +14,7 @@ class Comments extends Model
         'name',
         'email',
         'content',
-        'score'
+        'score',
+        'post_id'
     ];
 }

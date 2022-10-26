@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->text('contenu');
-            $table->enum('score', array(0,1,2,3,4,5));
+            $table->unsignedTinyInteger('score', false);
+            $table->foreignId('post_id')->constrained('posts')->onDelete('cascade');
             $table->timestamps();
         });
     }

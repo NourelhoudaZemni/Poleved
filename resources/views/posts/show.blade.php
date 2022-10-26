@@ -5,33 +5,39 @@
         <div class="flex justify-center items-center lg:flex-row flex-col gap-8">
             <!-- Description Div -->
 
-            <div class="w-full sm:w-96 md:w-8/12 lg:w-6/12 items-center">
-                <h2 class="font-semibold lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800  mt-4">{{ $post->title }}</h2>
+            <div class="w-full items-center  p-2 rounded shadow shadow-lg ">
+                <h2 class="font-semibold lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800  mt-4">{{ $posts->title }}</h2>
                 <p class="font-normal text-base leading-6 text-gray-600  mt-7">
-                    {{ $post->description }}
+
+                    {{ $posts->date }}
                 </p>
-                <p class="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 mt-6 ">Contact for information: {{ $post->date }}</p>
+                <p class="text-lg lg:leading-6 leading-5 mt-6 "> @csrf
+                    {{ $posts->description }}
+                </p>
 
-                <div class="lg:mt-11 mt-10">
-                    <hr class="bg-gray-200 w-full mt-4" />
-                    <div class="flex flex-row justify-between items-center mt-4">
-                        <p class="font-medium text-base leading-4 text-gray-600 ">Our sponsors:  {{ $post->contenu }}</p>
+                    <div class="my-5  p-2 rounded shadow shadow-lg">
+                        <p class="font-lg text-base leading-4 text-gray-600 break-all"> {{ $posts->contenu }}</p>
                     </div>
-                    <hr class="bg-gray-200 w-full mt-4" />
-                </div>
 
-                <a href="{{ route('post.index') }}">
+
+                <a href="{{ route('posts.index') }}">
                     <button class="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 lg:mt-12 mt-6">Back To Post List</button>
                 </a>
             </div>
 
-            <!-- Preview Images Div For larger Screen-->
+            @if(!empty($comments))
+                <div class="break-all ">
+                    @foreach($comments as $c)
+                        <div class=" my-2 p-2 border-dark border border-cyan-500 ">
+                            <p class="font-medium text-base leading-4 text-gray-600"> {{ $c->contenu }}</p>
+                            <hr class="bg-black" />
+                            <p class="my-2 font-light text-base leading-4 text-gray-650 "> email: {{ $c->email }}</p>
+                            <p class="font-light text-base leading-4 text-gray-650 "> Name: {{ $c->name }}</p>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
 
-{{--            <div class="w-full sm:w-96 md:w-8/12 lg:w-6/12 flex lg:flex-row flex-col lg:gap-8 sm:gap-6 gap-4">--}}
-{{--                <div class="w-full lg:w-8/12 bg-gray-100 flex justify-center items-center">--}}
-{{--                    <img src="{{ asset('images/' .  $velo->image) }}" alt="Wooden Chair Previw" />--}}
-{{--                </div>--}}
-{{--            </div>--}}
         </div>
     </div>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Posts;
 use Illuminate\Http\Request;
+use App\Models\Comments;
 
 class PostsController extends Controller
 {
@@ -68,7 +69,7 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        return view('posts.show', ['event' => Posts::findOrFail($id)]);
+        return view('posts.show', ['posts' => Posts::findOrFail($id), 'comments' => Posts::findOrFail($id)->hasMany(Comments::class, 'post_id', 'id')->get()]);
     }
 
     /**
@@ -79,7 +80,7 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        return view('posts.edit', ['event' => Posts::findOrFail($id)]);
+        return view('posts.edit', ['posts' => Posts::findOrFail($id)]);
     }
 
     /**
@@ -91,7 +92,7 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $posts = Posts::findOrFail($id);
+        $posts = Posts::find($id);
         $posts->title = $request->title;
         $posts->date = $request->date;
         $posts->contenu = $request->contenu;
