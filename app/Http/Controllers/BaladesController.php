@@ -108,6 +108,15 @@ class BaladesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'title'          =>  'required',
+            'quantity'          =>  'required',
+            'price'          =>  'required',
+            'discount_price'          =>  'required',
+            'description'          =>  'required',
+            'category'          =>  'required',
+            'image'         =>  'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000'
+        ]);
         if ($request->hasFile('image')) {
             $file_name = time() . '.' . request()->image->getClientOriginalExtension();
             request()->image->move(public_path('images'), $file_name);
